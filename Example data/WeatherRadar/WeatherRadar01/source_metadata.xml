@@ -1,0 +1,14 @@
+<sourceMetadata>
+		<updateDate>2015-04-07 01:02:23</updateDate> <!-- we need a good name -->
+		<sourceId>22222</sourceId>
+		<sourceTypeId>11111</sourceTypeId>
+		<serial>Weather Radar-123456</serial>
+		<sourceDescription>Meteo Swiss Weather Radar 1</sourceDescription>
+		<pathToRScript></pathToRScript>
+		<integration>
+			<lengthX>1000</lengthX>
+			<lengthY>1000</lengthY>
+			<angle></angle>
+			<time></time>
+		</integration>
+</sourceMetadata>

@@ -1,0 +1,28 @@
+<siteMetadata>
+	<sourceTypeName>UVvisSpectrometer</sourceTypeName>
+	<name>scan01Dresden</name>
+	<siteDescription>ms01Dresden</siteDescription>
+	<street>Flensburger Straße</street>
+	<city>Schacht 24G35, Mischsystem</city>
+	<coordinates>
+		<coordX></coordX>
+		<coordY></coordY>
+		<coordZ></coordZ>
+	</coordinates>
+	<picture id="one">
+		<pathToThePicture>/home/data/deviceTypes/scan/scan01/rawData/24G35_regenwetter.jpg</pathToThePicture>
+		<description>one</description>
+		<date></date>
+	</picture>
+	<picture id="two">
+		<pathToThePicture>/home/data/deviceTypes/scan/scan01/rawData/IMG_0312.JPG</pathToThePicture>
+		<description>two</description>
+		<date></date>
+	</picture>
+	<picture id="three">
+		<pathToThePicture>/home/data/deviceTypes/scan/scan01/rawData/IMG_0732.JPG</pathToThePicture>
+		<description>three</description>
+		<date></date>
+	</picture>
+</siteMetadata>
+

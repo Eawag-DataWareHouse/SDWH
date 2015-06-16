@@ -1,0 +1,11 @@
+<valueDefinition>
+<definition id='NA'>
+		<deviceTypeId>123</deviceTypeId>
+		<name>NA</name>
+		<value>-1</value>
+</definition>
+<definition id='Null'>		<deviceTypeId>123</deviceTypeId>
+		<name>Null</name>
+		<value>-2</value>
+</definition>
+</valueDefinition>

@@ -1,0 +1,28 @@
+<siteMetadata>
+	<sourceTypeName>UVvisSpectrometer</sourceTypeName>
+	<name>scan02Dresden</name>
+	<siteDescription>ms02Dresden</siteDescription>
+	<street>Ludwig-Kugelmannstr.</street>
+	<city>Dresden-Lockwitz, Schacht 36M39, Mischsystem</city>
+	<coordinates>
+		<coordX></coordX>
+		<coordY></coordY>
+		<coordZ></coordZ>
+	</coordinates>
+	<picture id="one">
+		<pathToThePicture>/home/data/deviceTypes/scan/scan02/rawData/kugelmann_plan groß.pdf</pathToThePicture>
+		<description></description>
+		<date></date>
+	</picture>
+	<picture id="two">
+		<pathToThePicture>/home/data/deviceTypes/scan/scan02/rawData/sitemap.jpg</pathToThePicture>
+		<description></description>
+		<date></date>
+	</picture>
+	<picture id="three">
+		<pathToThePicture>/home/data/deviceTypes/scan/scan02/rawData/ms02Dresden_manhole.jpg</pathToThePicture>
+		<description></description>
+		<date></date>
+	</picture>
+</siteMetadata>
+
