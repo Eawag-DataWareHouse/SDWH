@@ -1,0 +1,30 @@
+# files to be ignored by git
+
+
+# julia
+.juliahistory
+
+
+# R
+.Rhistory
+.Rdata
+*.Rout
+
+# latex
+
+*.aux
+*.log
+*.synctex.gz
+*.toc
+*out
+*.bbl
+*.blg
+*.spl
+*.dvi
+*.fff
+*.lof
+
+# misc
+
+.DS_Store
+desktop.ini
