@@ -2,7 +2,7 @@ for source in scan WeatherRadar MicrowaveLinks WaterSampleDataLab FloDar
 do
 	for instances in 01 02 03 04 05 06 07 08 09 10
 	do 
-		DIRECTORY=/home/data/deviceTypes/$source/$source$instances/
+		DIRECTORY=/home/SDWH/Landingzone/$source/$source$instances/
 		if [ -d "$DIRECTORY" ]; then
 			# if $DIRECTORY exists
 			cd /home/data/deviceTypes/$source/$source$instances/
