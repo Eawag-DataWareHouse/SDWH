@@ -1,13 +1,22 @@
-# if you want to run this schell script only for one instance of a source type, make sure all the other source types of all instances rawData folder is empty, otherwise the standardized data file will be re-generated and this process will be executed again for all instances of all source types. This will create a performance issue and the standardized file will be loaded again
+# if you want to run this shell script only for one instance of a
+# source type, make sure all the other source types of all instances
+# rawData folder is empty, otherwise the standardized data file will
+# be re-generated and this process will be executed again for all
+# instances of all source types. This will create dublicate in the DWH
+# and is a performance issue and the standardized file will be loaded
+# again.
 
 
 logFileMetadata=/home/TempFiles/autoRun_script_MetadataOutput.log
 logFileData=/home/TempFiles/autoRun_script_DataOutput.log
 performanceLogFile=/home/TempFiles/pentahoPerformance_optimized.log
-path='/home/data/deviceTypes'
 
-# --run the conversion script
+# root directory of landing zone
+path='/home/SDWH/example data'
+
 # --runConversionScripts is a Pentaho job which calls for runConversionScripts shell script in /home/data/deviceTypes
+# --run the conversion script
+
 /home/pentaho/data-integration/kitchen.sh -file=/home/svn/eawag_dwh/trunk/Pentaho_DI_Repository/jobs/runConversionScripts.kjb -level=Rawlevel -level=Detailed >> $logFileMetadata
 
 # --the following loop iterates through all source types under /home/data/deviceTypes
