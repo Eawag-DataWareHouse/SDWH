@@ -1,5 +1,0 @@
-device type = UVvisSpectrometer
-Device = scan02Dresden
-Site = ms02Dresden, Ludwig-Kugelmannstr., Dresden-Lockwitz, Schacht 36M39, Mischsystem	
-Parameters: see header in file
-units: see header in file
