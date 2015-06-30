@@ -1,17 +1,27 @@
-for source in scan WeatherRadar MicrowaveLinks WaterSampleDataLab FloDar
+# root directory of landing zone
+landingzonepath="$HOME/SDWH/Landingzone"
+
+cd $landingzonepath
+
+# find all directories in the landingzone
+for source in $(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
 do
-	for instances in 	01 02 03 04 05 06 07 08 09 10
-	do 
-		DIRECTORY=/home/SDWH/Landingzone/$source/$source$instances/
-		if [ -d "$DIRECTORY" ]; then
-			# if $DIRECTORY exists
-			cd /home/SDWH/Landingzone/$source/$source$instances/
-			echo "working directory: $DIRECTORY"	
-			./RunRScript.sh
-				FILE=$DIRECTORY/data/data_$source$instances.csv
-				if [ -f "$FILE" ]; then
-				sed -i 's/\([0-9]\)e\([-+]\)/\1E\2/g' $FILE
-				fi
-		fi
-	done
+    # find all instances
+    for instances in $(find . -maxdepth 2 -mindepth 2 -type d -printf '%f\n')
+	do
+	DIRECTORY="$landingzonepath/$source/$instances"
+
+	# if $DIRECTORY exists
+	if [ -d "$DIRECTORY" ]; then
+
+	    echo "working directory: $DIRECTORY"
+	    # $DIRECTORY/RunConversionScript.sh
+
+	    # convert 1.23e5 to 1.23E5
+	    FILE="$DIRECTORY/data/data_$instances.csv"
+	    if [ -f "$FILE" ]; then
+	    	sed -i 's/\([0-9]\)e\([-+]\)/\1E\2/g' $FILE
+	    fi
+	fi
+    done
 done

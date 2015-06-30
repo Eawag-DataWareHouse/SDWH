@@ -14,10 +14,12 @@ performanceLogFile="$HOME/TempFiles/pentahoPerformance_optimized.log"
 
 # root directory of landing zone
 landingzonepath="$HOME/SDWH/Landingzone"
+# path to Pentaho configuration (DI)
 pentahoconfigpath="$HOME/SDWH/PentahoConfiguration"
 
-# --runConversionScripts is a Pentaho job which calls for runConversionScripts shell script in $HOME/data/deviceTypes/SDWH/Landingzone/
-# --run the conversion script
+# --runConversionScripts is a Pentaho job which calls for
+# runConversionScripts.sh shell script in
+# $landingzonepath/ to run the conversion script
 
 $HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/runConversionScripts.kjb' -level=Rawlevel -level=Detailed >> $logFileMetadata
 
@@ -27,7 +29,7 @@ do
 	cd $source
 	# --the following loop iterates through all source instances under $landingzonepath/$source
 	for instances in */
-	do 
+	do
 		#--DIRECTORY=$source$instances
 		#--if [ -d "$DIRECTORY" ]; then
 			#--if DIRECTORY exists
@@ -48,15 +50,15 @@ echo  "dataFile: 	  $dataFile" >>$logFileMetadata
 echo  "valueDefinitionFile: 	  $validationFile" >>$logFileMetadata
 echo  " " >> $logFileMetadata
 
-echo "$instances :" >> $performanceLogFile 
+echo "$instances :" >> $performanceLogFile
 now=$(date +"%T")
-echo "updateMetadata startTime : $now" >> $performanceLogFile 
+echo "updateMetadata startTime : $now" >> $performanceLogFile
 
 			#-- the following line passes the above parameters to pentaho job and executes updateMetadata job
 			$HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath/jobs/updateMetadata.kjb -level=Rawlevel -param:parameterFile=$parameterFile -param:sourceTypeMetaFile=$sourceTypeMetaFile -param:sourceMetaFile=$sourceMetaFile -param:siteMetaFile=$siteMetaFile -param:dataFile=$dataFile -param:validationFile=$validationFile -rep=Pentaho_DI_Repository -level=Detailed >> $logFileMetadata
 now=$(date +"%T")
 echo "updateMetadata endTime : $now" >> $performanceLogFile
-echo " " >> $performanceLogFile 
+echo " " >> $performanceLogFile
 
 echo " " >> $logFileMetadata
 echo "end of inserting updateMetadata" >> $logFileMetadata
@@ -75,14 +77,12 @@ echo  " " >> $logFileData
 
 			if [ -f "$dataFile" ]; then
 now=$(date +"%T")
-echo "updateData startTime: $now" >> $performanceLogFile 
+echo "updateData startTime: $now" >> $performanceLogFile
 	$HOME/pentaho/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/UpdateData.kjb' -level=Rawlevel -param:parameterFile=$parameterFile -param:sourceTypeMetaFile=$sourceTypeMetaFile -param:sourceMetaFile=$sourceMetaFile -param:siteMetaFile=$siteMetaFile -param:dataFile=$dataFile -param:validationFile=$validationFile -rep=Pentaho_DI_Repository -level=Detailed >> $logFileData
 now=$(date +"%T")
-echo "updateData endTime: $now" >> $performanceLogFile 
-echo "" >> $performanceLogFile 
+echo "updateData endTime: $now" >> $performanceLogFile
+echo "" >> $performanceLogFile
 			fi
 		#--fi
 	done
 done
-
-
