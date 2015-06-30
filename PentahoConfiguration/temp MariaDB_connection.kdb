@@ -1,5 +1,5 @@
   <connection>
-    <name>tempDatabaseConnection</name>
+    <name>temp MariaDB_connection</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>

@@ -41,28 +41,28 @@ n.pixel.y <- 50
 ## ----------------------
 ## --- define helper function
 
-## --- load and if necessary install packages
-if(!require("rgdal")) install.packages("rgdal", repos="http://cran.rstudio.com/")
+## ## --- load and if necessary install packages
+## if(!require("rgdal")) install.packages("rgdal", repos="http://cran.rstudio.com/")
 
-## xcoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
-## ycoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
-gif2matrix <- function(file, xcoor, ycoor, xstep=1, ystep=1, rain.code) {
+## ## xcoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
+## ## ycoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
+## gif2matrix <- function(file, xcoor, ycoor, xstep=1, ystep=1, rain.code) {
 
-  ## Read in rain intensities from GIF-file
-  data.file <- rgdal::readGDAL(file,
-                               c(480-ycoor+76-1, xcoor-255),
-                               c(xstep, ystep),
-                               silent=TRUE)
+##   ## Read in rain intensities from GIF-file
+##   data.file <- rgdal::readGDAL(file,
+##                                c(480-ycoor+76-1, xcoor-255),
+##                                c(xstep, ystep),
+##                                silent=TRUE)
 
-  data.matrix <- as.matrix(data.file)
+##   data.matrix <- as.matrix(data.file)
 
-  ## convert in [mm/h]
-  for(i in 1:length(rain.code)) {
-    data.matrix[data.matrix == i] <- rain.code[i]
-  }
+##   ## convert in [mm/h]
+##   for(i in 1:length(rain.code)) {
+##     data.matrix[data.matrix == i] <- rain.code[i]
+##   }
 
-  data.matrix
-}
+##   data.matrix
+## }
 
 
 ## ----------------------
@@ -110,11 +110,16 @@ time <- strptime(time.str, "%Y%m%d%H%M")
 time.for <- format(time, "%d-%m-%Y %H:%M:%S")
 if(substr(time.str, 12, 13) %in% c("2", "7")) substr(time.for, 18, 18) <- "3"
 
-## read image in matrix
-radar.mat <- gif2matrix(image,
-                        xcoor, ycoor,
-                        n.pixel.x, n.pixel.y,
-                        rain.code)
+## ## read image in matrix
+## radar.mat <- gif2matrix(image,
+##                         xcoor, ycoor,
+##                         n.pixel.x, n.pixel.y,
+##                         rain.code)
+
+
+## !!! generate fake data !!!
+radar.mat <- matrix(runif(n.pixel.y*n.pixel.x), ncol=n.pixel.x)
+
 ## change format
 df.out <- cbind(expand.grid(Y=rev(ycoor:(ycoor+n.pixel.y-1)),
                             X=xcoor:(xcoor+n.pixel.x-1)),
@@ -129,6 +134,7 @@ df.out <- df.out[,c(4, 5, 3, 6, 2, 1, 7)]
 file.name <- paste0("./data/data_", device.instance, ".csv")
 
 write.table(df.out, file=file.name, append=TRUE,
-            row.names=FALSE, col.names=TRUE, quote=FALSE, sep=";")
+            row.names=FALSE, col.names=!file.exists(file.name),
+            quote=FALSE, sep=";")
 
 print(paste0("File ", file.name, " written/updated.")
