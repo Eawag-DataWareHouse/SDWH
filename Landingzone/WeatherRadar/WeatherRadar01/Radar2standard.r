@@ -132,9 +132,9 @@ df.out <- df.out[,c(4, 5, 3, 6, 2, 1, 7)]
 
 
 file.name <- paste0("./data/data_", device.instance, ".csv")
-
-write.table(df.out, file=file.name, append=TRUE,
-            row.names=FALSE, col.names=!file.exists(file.name),
-            quote=FALSE, sep=";")
-
+suppressWarnings(
+  write.table(df.out, file=file.name, append=TRUE,
+              row.names=FALSE, col.names=!file.exists(file.name),
+              quote=FALSE, sep=";")
+)
 print(paste0("File ", file.name, " written/updated.")

@@ -17,13 +17,16 @@ do
 	if [ -d "$DIRECTORY" ]; then
 
 	    echo "working directory: $DIRECTORY"
-	    $DIRECTORY/RunConversionScript.sh
+	    cd $DIRECTORY
+	    ./RunConversionScript.sh
 
 	    # convert 1.23e5 to 1.23E5
 	    FILE="$DIRECTORY/data/data_$instances.csv"
 	    if [ -f "$FILE" ]; then
 	    	sed -i 's/\([0-9]\)e\([-+]\)/\1E\2/g' $FILE
 	    fi
+
+	    cd $landingzonepath
 	fi
     done
 done
