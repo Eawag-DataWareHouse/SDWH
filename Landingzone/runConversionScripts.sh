@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # root directory of landing zone
 landingzonepath="$HOME/SDWH/Landingzone"
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 EXT=fp
 for i in *.${EXT};
 	do

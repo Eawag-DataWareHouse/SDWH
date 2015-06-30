@@ -1,4 +1,6 @@
- # if you want to run this shell script only for one instance of a
+#!/bin/bash
+
+# if you want to run this shell script only for one instance of a
 # source type, make sure all the other source types of all instances
 # rawData folder is empty, otherwise the standardized data file will
 # be re-generated and this process will be executed again for all

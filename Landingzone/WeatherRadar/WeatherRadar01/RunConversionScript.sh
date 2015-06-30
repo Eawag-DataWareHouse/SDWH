@@ -1,3 +1,5 @@
+#!/bin/bash
+
 EXT=gif
 for i in *.${EXT};
 	do
