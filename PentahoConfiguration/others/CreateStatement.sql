@@ -2,6 +2,7 @@ delimiter $$
 
 CREATE DATABASE `WaterResearch` /*!40100 DEFAULT CHARACTER SET latin1 */$$
 
+USE WaterResearch
 
 delimiter $$
 
@@ -169,6 +170,3 @@ CREATE TABLE `signalHasDateTime` (
 
 
 delimiter $$
-
-CREATE DATABASE `WaterResearch` /*!40100 DEFAULT CHARACTER SET latin1 */$$
-

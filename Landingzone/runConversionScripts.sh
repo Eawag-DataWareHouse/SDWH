@@ -17,7 +17,7 @@ do
 	if [ -d "$DIRECTORY" ]; then
 
 	    echo "working directory: $DIRECTORY"
-	    # $DIRECTORY/RunConversionScript.sh
+	    $DIRECTORY/RunConversionScript.sh
 
 	    # convert 1.23e5 to 1.23E5
 	    FILE="$DIRECTORY/data/data_$instances.csv"

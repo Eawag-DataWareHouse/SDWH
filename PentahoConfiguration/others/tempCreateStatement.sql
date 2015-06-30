@@ -2,6 +2,8 @@ delimiter $$
 
 CREATE DATABASE `temp` /*!40100 DEFAULT CHARACTER SET latin1 */$$
 
+USE temp
+
 delimiter $$
 
 CREATE TABLE `Temp` (
