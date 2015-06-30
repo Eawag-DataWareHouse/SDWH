@@ -19,11 +19,17 @@ landingzonepath="$HOME/SDWH/Landingzone"
 # path to Pentaho configuration (DI)
 pentahoconfigpath="$HOME/SDWH/PentahoConfiguration"
 
+# name of Pentaho Di Repository
+PentahoRep="PentahoFiles"
+
 # --runConversionScripts is a Pentaho job which calls for
 # runConversionScripts.sh shell script in
 # $landingzonepath/ to run the conversion script
 
-$HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/runConversionScripts.kjb' -level=Rawlevel -level=Detailed >> $logFileMetadata
+$HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/runConversionScripts.kjb' \
+    -level=Rawlevel -level=Detailed >> $logFileMetadata
+
+
 
 # --the following loop iterates through all source types under $landingzonepath
 for source in $landingzonepath/*/
@@ -58,9 +64,12 @@ do
 
 	#-- update meta data
 	# The following line passes the above parameters to pentaho job and executes updateMetadata job
-	$HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath/jobs/updateMetadata.kjb -level=Rawlevel -param:parameterFile=$parameterFile \
+	$HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath/jobs/updateMetadata.kjb \
+	    -level=Rawlevel -param:parameterFile=$parameterFile \
 	    -param:sourceTypeMetaFile=$sourceTypeMetaFile -param:sourceMetaFile=$sourceMetaFile -param:siteMetaFile=$siteMetaFile \
-	    -param:dataFile=$dataFile -param:validationFile=$validationFile -rep=Pentaho_DI_Repository -level=Detailed >> $logFileMetadata
+	    -param:dataFile=$dataFile -param:validationFile=$validationFile -rep=$PentahoRep -level=Detailed >> $logFileMetadata
+
+
 	now=$(date +"%T")
 	echo "updateMetadata endTime : $now" >> $performanceLogFile
 	echo " " >> $performanceLogFile
@@ -68,6 +77,9 @@ do
 	echo " " >> $logFileMetadata
 	echo "end of inserting updateMetadata" >> $logFileMetadata
 	echo " " >> $logFileMetadata
+
+	# -------------------------------------------------------
+
 
 	echo  "parameterFile:	  $parameterFile" >> $logFileData
 	echo  "sourceTypeMetaFile: $sourceTypeMetaFile" >> $logFileData
@@ -82,12 +94,12 @@ do
 	#   re-generate the dataFile and executes this step again... even if there is no change in the raw file
 
 	if [ -f "$dataFile" ]; then
-	    now=$(date +"%T")
+	    now=$(date +"%T")g
 	    echo "updateData startTime: $now" >> $performanceLogFile
-	    $HOME/pentaho/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/UpdateData.kjb' -level=Rawlevel \
+	    $HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/UpdateData.kjb' -level=Rawlevel \
 		-param:parameterFile=$parameterFile -param:sourceTypeMetaFile=$sourceTypeMetaFile \
 		-param:sourceMetaFile=$sourceMetaFile -param:siteMetaFile=$siteMetaFile -param:dataFile=$dataFile \
-		-param:validationFile=$validationFile -rep=Pentaho_DI_Repository -level=Detailed >> $logFileData
+		-param:validationFile=$validationFile -rep=$PentahoRep -level=Detailed >> $logFileData
 	    now=$(date +"%T")
 	    echo "updateData endTime: $now" >> $performanceLogFile
 	    echo "" >> $performanceLogFile
