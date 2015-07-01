@@ -1,5 +1,7 @@
 # files to be ignored by git
 
+# emacs backup files
+*~
 
 # julia
 .juliahistory
