@@ -47,7 +47,7 @@ colnames(data.raw)[-(1:2)] <- paste0("Absorbance ", colnames(data.raw)[-(1:2)], 
 
 ## format time
 time <- strptime(data.raw$Date.Time, "%Y.%m.%d %H:%M:%S")
-data.raw$Date.Time <- format(time, "%d-%m-%Y %H:%M:%S")
+data.raw$Date.Time <- format(time, "%Y-%m-%d %H:%M:%S")
 
 ## remove status column
 data.raw <- data.raw[,-2]
