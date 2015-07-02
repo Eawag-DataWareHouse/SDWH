@@ -104,10 +104,11 @@ rain.code <- c(0, 1e-04, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
 
 
 ## get time stamp from file name
-time.str <- substr(image, 28, 28+11)
+time.str <- substr(image, 38, 38+11)
 time <- strptime(time.str, "%Y%m%d%H%M")
 
 time.for <- format(time, "%Y-%m-%d %H:%M:%S")
+
 if(substr(time.str, 12, 13) %in% c("2", "7")) substr(time.for, 18, 18) <- "3"
 
 ## ## read image in matrix
