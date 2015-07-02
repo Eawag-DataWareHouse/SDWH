@@ -10,9 +10,9 @@
 
 
 # define logfiles
-logFileMetadata="$HOME/TempFiles/autoRun_script_MetadataOutput.log"
-logFileData="$HOME/TempFiles/autoRun_script_DataOutput.log"
-performanceLogFile="$HOME/TempFiles/pentahoPerformance_optimized.log"
+logFileMetadata="$HOME/SDWH/Logs/autoRun_script_MetadataOutput.log"
+logFileData="$HOME/SDWH/Logs/autoRun_script_DataOutput.log"
+performanceLogFile="$HOME/SDWH/Logs/pentahoPerformance_optimized.log"
 
 # root directory of landing zone
 landingzonepath="$HOME/SDWH/Landingzone"
@@ -38,9 +38,9 @@ do
     # --the following loop iterates through all source instances under $landingzonepath/$source
     for instances in */
     do
-	#--DIRECTORY=$source$instances
-	#--if [ -d "$DIRECTORY" ]; then
-	#--if DIRECTORY exists
+
+	echo "============================================================"
+	echo "We are at: "$source$instances
 
 	#--set parameter values
 	parameterFile=$landingzonepath/Parameters.xml
@@ -69,7 +69,6 @@ do
 	    -param:sourceTypeMetaFile=$sourceTypeMetaFile -param:sourceMetaFile=$sourceMetaFile -param:siteMetaFile=$siteMetaFile \
 	    -param:dataFile=$dataFile -param:validationFile=$validationFile -rep=$PentahoRep -level=Detailed >> $logFileMetadata
 
-
 	now=$(date +"%T")
 	echo "updateMetadata endTime : $now" >> $performanceLogFile
 	echo " " >> $performanceLogFile
@@ -78,6 +77,9 @@ do
 	echo "end of inserting updateMetadata" >> $logFileMetadata
 	echo " " >> $logFileMetadata
 
+
+	echo "--------------"
+	echo "Meta data updated!"
 	# -------------------------------------------------------
 
 
@@ -104,6 +106,9 @@ do
 	    echo "updateData endTime: $now" >> $performanceLogFile
 	    echo "" >> $performanceLogFile
 	fi
-	#--fi
+
+	echo "--------------"
+	echo "Signals updated!"
+
     done
 done

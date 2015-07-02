@@ -1,9 +1,9 @@
   <connection>
-    <name>MariaDB_connection</name>
+    <name>tempDatabaseConnection</name>
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>WaterResearch</database>
+    <database>temp</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f2e4cb798a52cc9da0ce</password>
