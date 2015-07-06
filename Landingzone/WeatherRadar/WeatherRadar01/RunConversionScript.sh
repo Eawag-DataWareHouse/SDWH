@@ -1,7 +1,7 @@
 #!/bin/bash
 
-EXT=gif
-for i in *.${EXT};
-	do
-		Rscript Radar2standard.r ./rawData/$i
-	done
+for i in rawData/*.gif
+do
+    Rscript Radar2standard.r "./$i"
+    echo "converted $i"
+done

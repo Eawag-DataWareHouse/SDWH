@@ -1,7 +1,7 @@
 #!/bin/bash
 
-EXT=fp
-for i in *.${EXT};
+for i in rawData/*.fp
 do
-    Rscript Scan2Standard.r ./rawData/$i
+    Rscript Scan2Standard.r "./$i"
+    echo "converted $i"
 done
