@@ -59,8 +59,8 @@
     <feedback_size>250000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
     <shared_objects_file/>
-    <capture_step_performance>Y</capture_step_performance>
-    <step_performance_capturing_delay>60000</step_performance_capturing_delay>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
     <dependencies>
     </dependencies>
@@ -73,37 +73,12 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;03&#x2f;17 17&#x3a;15&#x3a;43.080</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#x2f;06&#x2f;16 10&#x3a;38&#x3a;48.464</modified_date>
+  <modified_date>2015&#x2f;07&#x2f;06 11&#x3a;40&#x3a;54.393</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>MariaDB_connection</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>WaterResearch</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>MariaDBConnection</name>
     <server>localhost</server>
@@ -112,7 +87,7 @@
     <database>WaterResearch</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb798a52cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -125,34 +100,7 @@
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SQL_CONNECT</code><attribute>SET SESSION wait_timeout &#x3d; 600000&#x3b;</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>temp MariaDB_connection</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>temp</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SQL_CONNECT</code><attribute>SET SESSION wait_timeout &#x3d; 600&#x3b;</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -167,7 +115,7 @@
     <database>temp</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb798a52cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -190,29 +138,112 @@
   <hop> <from>Table input tempDataMetadata</from><to>Database lookup device</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup coordinates XY</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup integration X angle</from><to>Database lookup parameter</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup parameter</from><to>Database lookup datetime</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup device</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Database lookup coordinates XY</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Database lookup coordnates XYZ</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup coordnates XYZ</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>Database lookup integration X angle</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>Database lookup X Angle</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup X Angle</from><to>Database lookup parameter</to><enabled>Y</enabled> </hop>
   <hop> <from>Execute SQL script</from><to>Table input tempDataMetadata</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup datetime</from><to>Table output tempSignal</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>do nothing 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>do nothing 3</from><to>Database lookup coordinates XY</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows</from><to>do nothing 4</to><enabled>Y</enabled> </hop>
-  <hop> <from>do nothing 4</from><to>Database lookup coordnates XYZ</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>do nothing 5</to><enabled>Y</enabled> </hop>
-  <hop> <from>do nothing 5</from><to>Database lookup integration X angle</to><enabled>Y</enabled> </hop>
-  <hop> <from>Filter rows 2</from><to>do nothing 6</to><enabled>Y</enabled> </hop>
-  <hop> <from>do nothing 6</from><to>Database lookup X Angle</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database lookup parameter</from><to>do nothing 3 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>do nothing 3 2</from><to>Database lookup datetime</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add sequence Signal_ID</from><to>Block this step until steps finish</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish</from><to>Table output Signal</to><enabled>Y</enabled> </hop>
+  <hop> <from>Add sequence Signal_ID</from><to>Block this step until steps finish 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Block this step until steps finish 2</from><to>If Group_ID is not null</to><enabled>Y</enabled> </hop>
+  <hop> <from>Database lookup datetime</from><to>Table output tmpSignal</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table output tmpSignal</from><to>Add sequence Signal_ID</to><enabled>Y</enabled> </hop>
+  <hop> <from>If Group_ID is not null</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Table output SignalHasDateTime</to><enabled>Y</enabled> </hop>
+  <hop> <from>If Group_ID is not null</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dummy &#x28;do nothing&#x29; 2</from><to>Table output DateTimeGroup</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Add sequence Signal_ID</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>Signal_ID</valuename>
+      <use_database>N</use_database>
+      <connection>MariaDBConnection</connection>
+      <schema/>
+      <seqname>Signal_ID</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>&#x24;&#x7b;maxSignalID&#x7d;</start_at>
+      <increment_by>1</increment_by>
+      <max_value>99999999999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>780</xloc>
+      <yloc>477</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block this step until steps finish</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>Add sequence Signal_ID</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>877</xloc>
+      <yloc>410</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block this step until steps finish 2</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>Add sequence Signal_ID</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>781</xloc>
+      <yloc>534</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Database lookup X Angle</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>4</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -248,8 +279,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>630</xloc>
-      <yloc>420</yloc>
+      <xloc>580</xloc>
+      <yloc>325</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -260,7 +291,7 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>4</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -296,8 +327,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>300</xloc>
-      <yloc>240</yloc>
+      <xloc>243</xloc>
+      <yloc>143</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -308,7 +339,7 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>4</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -350,8 +381,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>600</xloc>
-      <yloc>240</yloc>
+      <xloc>557</xloc>
+      <yloc>146</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -362,7 +393,7 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>6</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -392,8 +423,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>450</xloc>
-      <yloc>600</yloc>
+      <xloc>409</xloc>
+      <yloc>481</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -404,7 +435,7 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>4</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -434,8 +465,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>480</xloc>
-      <yloc>60</yloc>
+      <xloc>416</xloc>
+      <yloc>14</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -446,7 +477,7 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>4</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -482,8 +513,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>420</yloc>
+      <xloc>241</xloc>
+      <yloc>330</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -499,7 +530,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>MariaDB_connection</connection>
+    <connection>MariaDBConnection</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -524,8 +555,46 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>450</xloc>
-      <yloc>360</yloc>
+      <xloc>416</xloc>
+      <yloc>355</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>960</xloc>
+      <yloc>570</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29; 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>780</xloc>
+      <yloc>711</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -541,7 +610,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>temp MariaDB_connection</connection>
+    <connection>tempDatabaseConnection</connection>
     <execute_each_row>N</execute_each_row>
     <single_statement>Y</single_statement>
     <replace_variables>N</replace_variables>
@@ -556,8 +625,8 @@
     </arguments>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>90</xloc>
-      <yloc>60</yloc>
+      <xloc>53</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -573,8 +642,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>do nothing 4</send_true_to>
-<send_false_to>do nothing 3</send_false_to>
+<send_true_to>Database lookup coordnates XYZ</send_true_to>
+<send_false_to>Database lookup coordinates XY</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -597,8 +666,8 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>450</xloc>
-      <yloc>150</yloc>
+      <xloc>403</xloc>
+      <yloc>93</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -614,8 +683,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-<send_true_to>do nothing 6</send_true_to>
-<send_false_to>do nothing 5</send_false_to>
+<send_true_to>Database lookup X Angle</send_true_to>
+<send_false_to>Database lookup integration X angle</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
@@ -626,8 +695,42 @@
     </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>450</xloc>
-      <yloc>270</yloc>
+      <xloc>410</xloc>
+      <yloc>226</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>If Group_ID is not null</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Dummy &#x28;do nothing&#x29; 2</send_true_to>
+<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <conditions>
+  <condition>
+   <negated>N</negated>
+   <leftvalue>Goup_ID</leftvalue>
+   <function>IS NOT NULL</function>
+   <rightvalue/>
+   </condition>
+  </conditions>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>777</xloc>
+      <yloc>594</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -652,8 +755,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>270</xloc>
-      <yloc>60</yloc>
+      <xloc>220</xloc>
+      <yloc>18</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -664,7 +767,7 @@
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>6</copies>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -702,19 +805,127 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>870</xloc>
-      <yloc>930</yloc>
+      <xloc>780</xloc>
+      <yloc>810</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output tempSignal</name>
+    <name>Table output Signal</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
-    <copies>6</copies>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>MariaDBConnection</connection>
+    <schema/>
+    <table>factTable</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field>Signal_ID</return_field>
+    <fields>
+        <field>
+          <column_name>Value</column_name>
+          <stream_name>Value</stream_name>
+        </field>
+        <field>
+          <column_name>Coordinates_ID</column_name>
+          <stream_name>Coordinates_ID</stream_name>
+        </field>
+        <field>
+          <column_name>Integration_ID</column_name>
+          <stream_name>Integration_ID</stream_name>
+        </field>
+        <field>
+          <column_name>Parameter_ID</column_name>
+          <stream_name>ParameterID</stream_name>
+        </field>
+        <field>
+          <column_name>Source_ID</column_name>
+          <stream_name>Source_ID</stream_name>
+        </field>
+        <field>
+          <column_name>Signal_ID</column_name>
+          <stream_name>Signal_ID</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>967</xloc>
+      <yloc>478</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output SignalHasDateTime</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>MariaDBConnection</connection>
+    <schema/>
+    <table>signalHasDateTime</table>
+    <commit>10000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>DateTime_ID</column_name>
+          <stream_name>DateTime_ID</stream_name>
+        </field>
+        <field>
+          <column_name>Signal_ID</column_name>
+          <stream_name>Signal_ID</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1131</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output tmpSignal</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
@@ -772,108 +983,25 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>660</xloc>
-      <yloc>600</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>do nothing 3</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>300</xloc>
-      <yloc>120</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>do nothing 3 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>450</xloc>
-      <yloc>510</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>do nothing 4</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>600</xloc>
-      <yloc>120</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>do nothing 5</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>330</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>do nothing 6</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>630</xloc>
-      <yloc>330</yloc>
+      <xloc>590</xloc>
+      <yloc>479</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step_error_handling>
+      <error>
+        <source_step>Table output Signal</source_step>
+        <target_step/>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
