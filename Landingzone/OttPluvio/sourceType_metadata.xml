@@ -1,0 +1,6 @@
+<sourceTypeMetadata>
+		<!-- sourceTypeId is a primary key and should never be changed -->
+		<sourceTypeId>OttPluvio2</sourceTypeId> 
+		<sourceTypeName>Ott Pluvio 2</sourceTypeName>
+		<sourceTypeDescription>Gravimetric Pluviometer by Ott, Version with collection opening 400 cm2. Runs with Ott NetDL Datalogger</sourceTypeDescription>
+</sourceTypeMetadata>

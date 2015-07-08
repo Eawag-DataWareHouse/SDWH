@@ -1,0 +1,27 @@
+<siteMetadata>
+	<sourceTypeName>Ott Pluvio 2</sourceTypeName>
+	<name>Adliswil Rain 01</name>
+	<siteDescription>Besides the pumping House at Soodmatte in Adliswil (ZH)</siteDescription>
+	<street>Soodstrasse 50</street>
+	<city>8134 Adliswil, Switzerland</city>
+	<coordinates>
+		<coordX>682085</coordX>
+		<coordY>241498</coordY>
+		<coordZ></coordZ>
+	</coordinates>
+	<picture id="Adl_R01_situation">
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Rain01PumpingStation.JPG</pathToThePicture>                    
+		<description>Pluviometer at Adliswil Rain 01</description>
+		<date></date>
+	</picture>
+	<picture id="Adl_R01_outsideBox">
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Raingauge_LoggerBox.JPG</pathToThePicture>
+		<description>Outside of the measurement Box</description>
+		<date></date>
+	</picture>
+	<picture id="Adl_R01_insideBox">
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Loggerinst_rain1_DuoSens_Modem.JPG</pathToThePicture>
+		<description>Inside of the measurement box</description>
+		<date></date>
+	</picture>
+</siteMetadata>
