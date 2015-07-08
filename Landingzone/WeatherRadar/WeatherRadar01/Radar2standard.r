@@ -119,6 +119,8 @@ if(substr(time.str, 12, 13) %in% c("2", "7")) substr(time.for, 18, 18) <- "3"
 
 
 ## !!! generate fake data !!!
+
+set.seed(123)
 radar.mat <- matrix(runif(n.pixel.y*n.pixel.x), ncol=n.pixel.x)
 
 ## change format
@@ -138,4 +140,4 @@ suppressWarnings(
               row.names=FALSE, col.names=!file.exists(file.name),
               quote=FALSE, sep=";")
 )
-print(paste0("File ", file.name, " written/updated.")
+print(paste0("File ", file.name, " written/updated."))
