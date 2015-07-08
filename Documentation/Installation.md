@@ -1,7 +1,7 @@
 Setup of the Sensor Data Ware House
 ===================================
 
-Download a df version of this document [here](https://gitprint.com/Eawag-DataWareHouse/SDWH/blob/master/Documentation/Installation.md)
+Download a pdf version of this document [here](https://gitprint.com/Eawag-DataWareHouse/SDWH/blob/master/Documentation/Installation.md).
 
 This document explains  how to install the required software packages
 
@@ -172,8 +172,7 @@ mysql -u root -p < ~/SDWH/PentahoConfiguration/others/CreateStatement.sql
 ```
 
 Then open MySQL workbench and create a new connection:
-
-  *IMAGE*
+![Connection](images/newconnection.jpg?raw=true)
 
 
 Create a DI Repository
