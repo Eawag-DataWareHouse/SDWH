@@ -1,7 +1,7 @@
 Setup of the Sensor Data Ware House
 ===================================
 
-Download a df version of this document (here)[https://gitprint.com/Eawag-DataWareHouse/SDWH/Documentation/blob/master/Installation.md]
+Download a df version of this document [here](https://gitprint.com/Eawag-DataWareHouse/SDWH/blob/master/Documentation/Installation.md)
 
 This document explains  how to install the required software packages
 
@@ -37,7 +37,7 @@ Pentaho
 
 *Source:* [http://wiki.pentaho.com/display/EAI/01.+Installing+Kettle]
 
-### Installation:
+Installation:
 
 1. Install Sun java Runtime Environment (JRE) version 1.5 or newer:
 `sudo apt-get install default-jre`
@@ -154,15 +154,16 @@ and shell scripts
 3. a landing zone, that is a directory with a specific structure
 
 
-## Create databases
+Create databases
+-----------
 
-### *Start MariaDB service*
+### Start MariaDB service
 ```
 sudo service mysql start
 ```
 Note: The  MySQL command line interface can be entered via: `mysql -u root -p`
 
-#### Create databases
+### Create databases
 
 Execute the following sql scripts from shell:
 ```
@@ -175,7 +176,8 @@ Then open MySQL workbench and create a new connection:
   *IMAGE*
 
 
-## Create a DI Repository
+Create a DI Repository
+-----------
 
 We have to tell Pentaho where the configuration files are stored (a so
 called DI Repository which stands for data integration).
@@ -202,7 +204,8 @@ check the **show repository dialog at startup?** box.
 
 6. restart Pentaho.
 
-## Connecting Pentaho to MariaDB
+Connecting Pentaho to MariaDB
+-----------
 
 The connection is setup automatically. However, you have to change the Password used for mariaDB.
 
@@ -224,13 +227,15 @@ go to the tab **View** -> **transformation** -> **database connection** -> **tem
 Test by clicking on the test button at the bottom of the dialogue box.
 
 
-## Create landingzone
+Create landingzone
+-----------
 
 The simplest way is to use the the directory `SDWH/Landingzone` but
 you can create another directory with the same structure (see user
 manual).
 
-## Adapt paths
+Adapt paths
+-----------
 
 Edit the paths in the shell script
 `PentahoConfiguration/shellScripts/runAllTransformationsAndJobs.sh`; A
@@ -242,7 +247,8 @@ Open the file
 in Pentaho (spoon). Right click on the box names *Join Rows (cartesian
 product)* > *edit step* and modify the *Temp directory*.
 
-## Set up cron jobs
+Set up cron jobs
+-----------
 
 open crontab file with
 ```
