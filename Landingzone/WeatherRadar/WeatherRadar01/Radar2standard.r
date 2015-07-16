@@ -3,14 +3,35 @@
 ## April 17, 2015 -- Andreas Scheidegger
 ##
 ## andreas.scheidegger@eawag.ch
+## edited by Miroslav Vrzba
+## editet by Tobias Doppler, 14.07.2015
 ## =======================================================
 
-## =================================
-## Run: Rscript Radar2standard.r radarimage.gif
+## =======================================================
+## reads weather Radar imagages from meteoswiss of type precip.sv (georeference: TZC_georef.png)
+## e.g. "meteoswiss.radar.precip.sv.201311020252.gif"
+## =======================================================
 ##
-## writes file radarimage.STANDARD.csv
-## =================================
+## =======================================================
+## colors are converted to rain intesities according to "8bit_Metranet_v102.txt"
+## special values are:
+## -10    echo suppressed
+## -90    reserved
+## -100   no echo / pixel not covered by any radar
+## =======================================================
+##
+## For more information refer to:
+## Q:\Abteilungsprojekte\Eng\SWWData\UrbHyd\Radar\dataset-kundeninfo-outgoing-2013
+##
+## =======================================================
+## Output is a .csv file in the standardized file format for the DataWareHouse
+## Output filename "data/data_",source.instance,".csv"
+## =======================================================
+## Run: Rscript Radar2standard.r radarimage.gif
+## =======================================================
 
+# clear variables / environment
+# rm(list = ls()) 
 
 ## read file name as command line argument
 args <- commandArgs(trailingOnly = TRUE)
@@ -18,58 +39,56 @@ args <- commandArgs(trailingOnly = TRUE)
 if(is.na(args[1])) stop("Provide file name of radar image!")
 image <- args[1]
 
+## =========================================================
+## INPUT NEEDED! in the following section you have to change things!
+## =========================================================
 
-## ----------------------
-## --- inputs
+## Set coordinates for the rectangle to be read
+## xcoor:  x coordinate of *TOP LEFT* corner of the area to be read in CH1903 [km]  dimensions easthing = [255 965]
+## ycoor:  y coordinate of *TOP LEFT* corner of the area to be read in CH1903 [km]  dimensions northing = [-160 480] 
+xcoor <- 255       
+ycoor <- 480     
 
-## for naming of output file
-device.instance <- "WeatherRadar01"
+## n.pixel.x:   number of pixels in x direction (full picture: 710 px in x direction)       1 px = 1 km
+## n.pixel.y:   number of pixels in y direction (full picture: 640 px in y direction)
+n.pixel.x <- 710           
+n.pixel.y <- 640
 
-## xcoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
-## ycoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
+## define source instance for naming of file
+source.instance <- "WeatherRadar01"
 
-xcoor <- 600
-ycoor <- 250
-
-## n.pixel.x:   number of pixel in x direction
-## n.pixel.y:   number of pixel in y direction
-
-n.pixel.x <- 50
-n.pixel.y <- 50
-
-
-## ----------------------
-## --- define helper function
-
-## ## --- load and if necessary install packages
-## if(!require("rgdal")) install.packages("rgdal", repos="http://cran.rstudio.com/")
-
-## ## xcoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
-## ## ycoor:  coordinate of *bottom left* point of pixel in CH1903 [km]
-## gif2matrix <- function(file, xcoor, ycoor, xstep=1, ystep=1, rain.code) {
-
-##   ## Read in rain intensities from GIF-file
-##   data.file <- rgdal::readGDAL(file,
-##                                c(480-ycoor+76-1, xcoor-255),
-##                                c(xstep, ystep),
-##                                silent=TRUE)
-
-##   data.matrix <- as.matrix(data.file)
-
-##   ## convert in [mm/h]
-##   for(i in 1:length(rain.code)) {
-##     data.matrix[data.matrix == i] <- rain.code[i]
-##   }
-
-##   data.matrix
-## }
+## =========================================================
+## =========================================================
 
 
-## ----------------------
-## --- code to convert rgb value into rain rate [mm/h]
-##  based on file "RGB_rainrate256.txt"
+## load and if necessary install packages
+if(!require("rgdal")) install.packages("rgdal", repos="http://cran.rstudio.com/")
 
-rain.code <- c(0, 1e-04, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
+## function to produce matrix from picture
+gif2matrix <- function(file, xcoor, ycoor, xstep=1, ystep=1, rain.code) {
+
+  #define origin in pixels
+  xpix <- xcoor-255
+  ypix <- 480-ycoor+76
+  
+  ## Read in rain intensities from GIF-file
+  data.file <- rgdal::readGDAL(file,
+                               offset=c(ypix, xpix),
+                               region.dim=c(ystep, xstep),
+                               silent=TRUE)
+
+  data.matrix <- as.matrix(data.file)
+
+  ## convert in [mm/h]
+  for(i in 0:length(rain.code)-1) {
+    data.matrix[data.matrix == i] <- rain.code[i+1]
+  }
+
+  data.matrix
+}
+
+## code to convert rgb value into rain rate [mm/h]
+rain.code <- c(-10, 1e-04, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
                0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.1, 1.25,
                1.35, 1.45, 1.55, 1.65, 1.75, 1.85, 1.95, 2, 3.05, 4.05, 5.05, 6.05,
                7.05, 8.05, 9.05, 10.05, 11.05, 12.05, 13.05, 14.05, 15.05, 16.05,
@@ -96,48 +115,39 @@ rain.code <- c(0, 1e-04, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
                195.05, 196.05, 197.05, 198.05, 199.05, 200.05, 201.05, 202.05,
                203.05, 204.05, 205.05, 206.05, 207.05, 208.05, 209.05, 210.05,
                220.05, 230.05, 240.05, 250.05, 260.05, 270.05, 280.05, 290.05,
-               300.05, 310.05, 320.05, 330.05, 340.05, 350.05, 360.05, 370.05,
-               380.05, 9999.9)
-
-## ----------------------
-## --- read image
-
+               300.05, 310.05, 320.05, 330.05, 340.05, -90, -90, -90,
+               -90, 9999.9)
 
 ## get time stamp from file name
-time.str <- substr(image, 38, 38+11)
+split<-gregexpr(pattern ='/',image)[[1]]
+splitter<-split[length(split)]
+time.str <- substr(image, splitter+28, splitter+28+11)
 time <- strptime(time.str, "%Y%m%d%H%M")
 
 time.for <- format(time, "%Y-%m-%d %H:%M:%S")
-
 if(substr(time.str, 12, 13) %in% c("2", "7")) substr(time.for, 18, 18) <- "3"
 
-## ## read image in matrix
-## radar.mat <- gif2matrix(image,
-##                         xcoor, ycoor,
-##                         n.pixel.x, n.pixel.y,
-##                         rain.code)
+## read image in matrix
+radar.mat <- gif2matrix(image,
+                        xcoor, ycoor,
+                        n.pixel.x, n.pixel.y,
+                        rain.code)
 
+## produce standardized file format for DataWareHouse
+df.out <- cbind(expand.grid(X=xcoor:(xcoor+n.pixel.x-1),
+                            Y=(ycoor-1):(ycoor-n.pixel.y)),
+                            Value=c(radar.mat),
+                            Parameter="rain intensity",
+                            Group_ID="",
+                            Z="",
+                            Timestamp=time.for)              
+df.out <- df.out[,c(7,4,3,5,1,2,6)]
 
-## !!! generate fake data !!!
+## remove values outside of radar coverage
+Sdf.out <- df.out[df.out$Value < 9999,]
 
-set.seed(123)
-radar.mat <- matrix(runif(n.pixel.y*n.pixel.x), ncol=n.pixel.x)
-
-## change format
-df.out <- cbind(expand.grid(Y=rev(ycoor:(ycoor+n.pixel.y-1)),
-                            X=xcoor:(xcoor+n.pixel.x-1)),
-                Value=c(radar.mat),
-                Timestamp=time.for,
-                Parameter="rain intensity",
-                Goup_ID="",
-                Z="")
-df.out <- df.out[,c(4, 5, 3, 6, 2, 1, 7)]
-
-
-file.name <- paste0("./data/data_", device.instance, ".csv")
-suppressWarnings(
-  write.table(df.out, file=file.name, append=TRUE,
-              row.names=FALSE, col.names=!file.exists(file.name),
-              quote=FALSE, sep=";")
-)
+## write output file
+file.name <- paste0("data/data_",source.instance,".csv")
+write.table(df.out, file=file.name, row.names=FALSE, append=T, col.names=!file.exists(file.name), quote=FALSE, sep=";")
+ 
 print(paste0("File ", file.name, " written/updated."))

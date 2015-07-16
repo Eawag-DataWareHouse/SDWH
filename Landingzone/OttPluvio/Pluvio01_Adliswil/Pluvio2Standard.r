@@ -23,7 +23,7 @@ source.instance <- "Pluvio01_Adliswil"
 ## define coordinate
 xcoor <- 682085
 ycoor <- 241498
-zcoor <- ""
+zcoor <- 495
 
 ## --- read files
 data.raw <- read.table(file.raw, sep="\t", header=T)

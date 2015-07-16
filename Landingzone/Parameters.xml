@@ -1,19 +1,19 @@
 <parameters>
 <parameter id='absorbance 200.00_nm'>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
-			<parameterName>Absorbance 200.00</parameterName>
+			<parameterName>Absorbance 200.00_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
 			<parameterDescription>absorbance at 200.00 nm wavelength</parameterDescription>		
 </parameter>
 <parameter id='Absorbance 202.50_nm'>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
-			<parameterName>Absorbance 202.50</parameterName>
+			<parameterName>Absorbance 202.50_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
 			<parameterDescription>absorbance at 202.50 nm wavelength</parameterDescription>				
 </parameter>
 <parameter id='Absorbance 205.00_nm'>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
-			<parameterName>Absorbance 205.00</parameterName>
+			<parameterName>Absorbance 205.00_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
 			<parameterDescription>absorbance at 205.00 nm wavelength</parameterDescription>				
 </parameter>

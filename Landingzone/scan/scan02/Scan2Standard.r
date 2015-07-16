@@ -25,8 +25,8 @@ file.raw <- args[1]
 device.instance <- "scan02"
 
 ## define coordinate
-xcoor <- 580000
-ycoor <- 255300
+xcoor <- 580100
+ycoor <- 255317
 zcoor <- 455.3
 
 
