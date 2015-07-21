@@ -13,7 +13,7 @@ This document explains  how to install the required software packages
 
 * MySQL Workbench
 
-* R, Python, Julia, Matlab or whatever is used for the conversion scripts
+* R to run the conversion scripts (alternatively Python, Julia, Matlab ... could be used)
 
 and how to configure the data warehouse.
 
@@ -143,10 +143,10 @@ Initial Configuration
 ===================================
 
 This section describes how to create the empty database and how to
-configure Pentaho. The DWH requires four components to be set up and
+configure Pentaho. The DWH requires three components to be set up and
 linked correctly:
 
-1. two databases, called Datawarehouse and temp.
+1. two databases, called `WaterResearch` and `temp`.
 
 2. a "DI Repository" that holds the the configuration files of Pentaho
 and shell scripts
@@ -213,7 +213,7 @@ The connection is setup automatically. However, you have to change the Password 
 
 	**User Name**: root
 
-	**Password**: (MariaDB_Password)
+	**Password**: (MariaD Password)
 
 2. go to the tab "View" -> transformation -> database connection -> tempDatabaseConnection -> rightclick -> edit and add:
 go to the tab **View** -> **transformation** -> **database connection** -> **tempDatabaseConnection**
@@ -221,7 +221,7 @@ go to the tab **View** -> **transformation** -> **database connection** -> **tem
 
 	**User Name**: root
 
-	**Password**: (MariaDB_Password)
+	**Password**: (MariaDB Password)
 
 Test by clicking on the test button at the bottom of the dialogue box.
 
@@ -229,7 +229,7 @@ Test by clicking on the test button at the bottom of the dialogue box.
 Create landingzone
 -----------
 
-The simplest way is to use the the directory `SDWH/Landingzone` but
+The simplest way is to use the the directory `SDWH/Landingzone` from the git repository but
 you can create another directory with the same structure (see user
 manual).
 
@@ -237,8 +237,8 @@ Adapt paths
 -----------
 
 Edit the paths in the shell script
-`PentahoConfiguration/shellScripts/runAllTransformationsAndJobs.sh`; A
-path to the *landingzone*, the *pentaho repository *and the *log
+`SDWH/PentahoConfiguration/shellScripts/runAllTransformationsAndJobs.sh`; the
+paths for the *landingzone*, the *pentaho repository *and the *log
 files* must be defined.
 
 Open the file
