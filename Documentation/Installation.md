@@ -142,7 +142,7 @@ chmod +x $(find -name "*.sh")
 Initial Configuration
 ===================================
 
-This section describes how to create the empty database and how to
+This section describes how to create the empty databases and how to
 configure Pentaho. The DWH requires three components to be set up and
 linked correctly:
 
@@ -194,7 +194,7 @@ In Pentaho (Spoon):
 
 3. Select **Kettle file repository** and click **OK**. The** Repository Configuration** dialog box appears.
 
-4. Enter the path SDWH/PentahoConfiguration/, that is where the
+4. Enter the path to `SDWH/PentahoConfiguration/`, i.e. where the
 Pentaho files are stored. Give it a descriptive name such as "pentaho
 file directory".
 
@@ -223,14 +223,15 @@ go to the tab **View** -> **transformation** -> **database connection** -> **tem
 
 	**Password**: (MariaDB Password)
 
-Test by clicking on the test button at the bottom of the dialogue box.
+Use the test button at the bottom of the dialogue box to confirm a correct
+connection.
 
 
 Create landingzone
 -----------
 
 The simplest way is to use the the directory `SDWH/Landingzone` from the git repository but
-you can create another directory with the same structure (see user
+you could also create you own empty directory with the same structure (see user
 manual).
 
 Adapt paths
@@ -257,8 +258,8 @@ add the following at the end of the file:
 ```
 * * * * * ~/SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh
 ```
-where * are replaced by * minute (from 0 to 59) * hour (from 0 to 23)
-* day of month (from 1 to 31) * month (from 1 to 12) * day of week
+where \* are replaced by \* minute (from 0 to 59) \* hour (from 0 to 23)
+\* day of month (from 1 to 31) * month (from 1 to 12) \* day of week
 (from 0 to 6) (0=Sunday) The meaning of the stars is to run the script
 every minute, every hour, every day, every month and all day of the
 week.  Example: run the shell script every 30 minutes:
