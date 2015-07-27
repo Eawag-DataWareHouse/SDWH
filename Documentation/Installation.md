@@ -13,7 +13,7 @@ This document explains  how to install the required software packages
 
 * MySQL Workbench
 
-* R, Python, Julia, Matlab or whatever is used for the conversion scripts
+* R to run the conversion scripts (alternatively Python, Julia, Matlab ... could be used)
 
 and how to configure the data warehouse.
 
@@ -142,11 +142,11 @@ chmod +x $(find -name "*.sh")
 Initial Configuration
 ===================================
 
-This section describes how to create the empty database and how to
-configure Pentaho. The DWH requires four components to be set up and
+This section describes how to create the empty databases and how to
+configure Pentaho. The DWH requires three components to be set up and
 linked correctly:
 
-1. two databases, called Datawarehouse and temp.
+1. two databases, called `WaterResearch` and `temp`.
 
 2. a "DI Repository" that holds the the configuration files of Pentaho
 and shell scripts
@@ -194,7 +194,7 @@ In Pentaho (Spoon):
 
 3. Select **Kettle file repository** and click **OK**. The** Repository Configuration** dialog box appears.
 
-4. Enter the path SDWH/PentahoConfiguration/, that is where the
+4. Enter the path to `SDWH/PentahoConfiguration/`, i.e. where the
 Pentaho files are stored. Give it a descriptive name such as "pentaho
 file directory".
 
@@ -213,7 +213,7 @@ The connection is setup automatically. However, you have to change the Password 
 
 	**User Name**: root
 
-	**Password**: (MariaDB_Password)
+	**Password**: (MariaD Password)
 
 2. go to the tab "View" -> transformation -> database connection -> tempDatabaseConnection -> rightclick -> edit and add:
 go to the tab **View** -> **transformation** -> **database connection** -> **tempDatabaseConnection**
@@ -221,24 +221,25 @@ go to the tab **View** -> **transformation** -> **database connection** -> **tem
 
 	**User Name**: root
 
-	**Password**: (MariaDB_Password)
+	**Password**: (MariaDB Password)
 
-Test by clicking on the test button at the bottom of the dialogue box.
+Use the test button at the bottom of the dialogue box to confirm a correct
+connection.
 
 
 Create landingzone
 -----------
 
-The simplest way is to use the the directory `SDWH/Landingzone` but
-you can create another directory with the same structure (see user
+The simplest way is to use the the directory `SDWH/Landingzone` from the git repository but
+you could also create you own empty directory with the same structure (see user
 manual).
 
 Adapt paths
 -----------
 
 Edit the paths in the shell script
-`PentahoConfiguration/shellScripts/runAllTransformationsAndJobs.sh`; A
-path to the *landingzone*, the *pentaho repository *and the *log
+`SDWH/PentahoConfiguration/shellScripts/runAllTransformationsAndJobs.sh`; the
+paths for the *landingzone*, the *pentaho repository *and the *log
 files* must be defined.
 
 Open the file
@@ -257,8 +258,8 @@ add the following at the end of the file:
 ```
 * * * * * ~/SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh
 ```
-where * are replaced by * minute (from 0 to 59) * hour (from 0 to 23)
-* day of month (from 1 to 31) * month (from 1 to 12) * day of week
+where \* are replaced by \* minute (from 0 to 59) \* hour (from 0 to 23)
+\* day of month (from 1 to 31) * month (from 1 to 12) \* day of week
 (from 0 to 6) (0=Sunday) The meaning of the stars is to run the script
 every minute, every hour, every day, every month and all day of the
 week.  Example: run the shell script every 30 minutes:
