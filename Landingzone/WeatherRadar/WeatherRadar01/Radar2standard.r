@@ -8,12 +8,12 @@
 ## =======================================================
 
 ## =======================================================
-## reads weather Radar imagages from meteoswiss of type precip.sv (georeference: TZC_georef.png)
+## reads weather Radar images from meteoswiss of type precip.sv (georeference: TZC_georef.png)
 ## e.g. "meteoswiss.radar.precip.sv.201311020252.gif"
 ## =======================================================
 ##
 ## =======================================================
-## colors are converted to rain intesities according to "8bit_Metranet_v102.txt"
+## colors are converted to rain intensities according to "8bit_Metranet_v102.txt"
 ## special values are:
 ## -10    echo suppressed
 ## -90    reserved
@@ -31,7 +31,7 @@
 ## =======================================================
 
 # clear variables / environment
-# rm(list = ls()) 
+# rm(list = ls())
 
 ## read file name as command line argument
 args <- commandArgs(trailingOnly = TRUE)
@@ -45,14 +45,14 @@ image <- args[1]
 
 ## Set coordinates for the rectangle to be read
 ## xcoor:  x coordinate of *TOP LEFT* corner of the area to be read in CH1903 [km]  dimensions easthing = [255 965]
-## ycoor:  y coordinate of *TOP LEFT* corner of the area to be read in CH1903 [km]  dimensions northing = [-160 480] 
-xcoor <- 255       
-ycoor <- 480     
+## ycoor:  y coordinate of *TOP LEFT* corner of the area to be read in CH1903 [km]  dimensions northing = [-160 480]
+xcoor <- 700
+ycoor <- 250
 
 ## n.pixel.x:   number of pixels in x direction (full picture: 710 px in x direction)       1 px = 1 km
 ## n.pixel.y:   number of pixels in y direction (full picture: 640 px in y direction)
-n.pixel.x <- 710           
-n.pixel.y <- 640
+n.pixel.x <- 20
+n.pixel.y <- 15
 
 ## define source instance for naming of file
 source.instance <- "WeatherRadar01"
@@ -70,7 +70,7 @@ gif2matrix <- function(file, xcoor, ycoor, xstep=1, ystep=1, rain.code) {
   #define origin in pixels
   xpix <- xcoor-255
   ypix <- 480-ycoor+76
-  
+
   ## Read in rain intensities from GIF-file
   data.file <- rgdal::readGDAL(file,
                                offset=c(ypix, xpix),
@@ -140,7 +140,7 @@ df.out <- cbind(expand.grid(X=xcoor:(xcoor+n.pixel.x-1),
                             Parameter="rain intensity",
                             Group_ID="",
                             Z="",
-                            Timestamp=time.for)              
+                            Timestamp=time.for)
 df.out <- df.out[,c(7,4,3,5,1,2,6)]
 
 ## remove values outside of radar coverage
@@ -149,5 +149,5 @@ Sdf.out <- df.out[df.out$Value < 9999,]
 ## write output file
 file.name <- paste0("data/data_",source.instance,".csv")
 write.table(df.out, file=file.name, row.names=FALSE, append=T, col.names=!file.exists(file.name), quote=FALSE, sep=";")
- 
+
 print(paste0("File ", file.name, " written/updated."))
