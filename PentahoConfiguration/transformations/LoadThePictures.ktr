@@ -73,7 +73,9 @@
   <created_user/>
   <created_date>2013&#x2f;08&#x2f;22 22&#x3a;40&#x3a;59.566</created_date>
   <modified_user/>
-  <modified_date>2015&#x2f;06&#x2f;09 16&#x3a;11&#x3a;32.260</modified_date>
+  <modified_date>2015&#x2f;07&#x2f;28 13&#x3a;57&#x3a;18.162</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
@@ -85,7 +87,7 @@
     <database>WaterResearch</database>
     <port>3306</port>
     <username>root</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb798a52cc9da0ce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -98,7 +100,7 @@
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SQL_CONNECT</code><attribute>SET SESSION wait_timeout &#x3d; 600000&#x3b;</attribute></attribute>
+      <attribute><code>SQL_CONNECT</code><attribute>SET SESSION wait_timeout &#x3d; 600&#x3b;</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -477,10 +479,16 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>ScriptValue</jsScript_name>
-        <jsScript_script>file &#x3d; new Packages.java.io.File&#x28;pathToThePicture.getString&#x28;&#x29;&#x29;&#x3b;  &#xa;fileInputStream &#x3d; new Packages.java.io.FileInputStream&#x28;file&#x29;&#x3b;&#xa;var content &#x3d; Packages.org.pentaho.di.core.Const.createByteArray&#x28;file.length&#x28;&#x29;&#x29;&#x3b;&#xa;fileInputStream.read&#x28;content, 0, file.length&#x28;&#x29;&#x29;&#x3b;&#xa;fileInputStream.close&#x28;&#x29;&#x3b;</jsScript_script>
+        <jsScript_script>file &#x3d; new Packages.java.io.File&#x28;pathToThePicture.getString&#x28;&#x29;&#x29;&#x3b;  &#xa;fileInputStream &#x3d; new Packages.java.io.FileInputStream&#x28;file&#x29;&#x3b;&#xa;var content &#x3d; Packages.org.pentaho.di.core.Const.createByteArray&#x28;file.length&#x28;&#x29;&#x29;&#x3b;&#xa;var pictureType &#x3d; &#x22;.exe&#x22;&#x3b;&#xa;fileInputStream.read&#x28;content, 0, file.length&#x28;&#x29;&#x29;&#x3b;&#xa;fileInputStream.close&#x28;&#x29;&#x3b;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>content</name>
         <rename>content</rename>
         <type>Binary</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>pictureType</name>
+        <rename>pictureType</rename>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
@@ -536,6 +544,10 @@
         <field>
           <column_name>Site_ID</column_name>
           <stream_name>Site_ID</stream_name>
+        </field>
+        <field>
+          <column_name>PictureType</column_name>
+          <stream_name>pictureType</stream_name>
         </field>
     </fields>
      <cluster_schema/>
