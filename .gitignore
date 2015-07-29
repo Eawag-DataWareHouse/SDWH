@@ -2,6 +2,7 @@
 
 # emacs backup files
 *~
+\#*
 
 # julia
 .juliahistory
@@ -12,19 +13,6 @@
 .Rdata
 *.Rout
 
-# latex
-
-*.aux
-*.log
-*.synctex.gz
-*.toc
-*out
-*.bbl
-*.blg
-*.spl
-*.dvi
-*.fff
-*.lof
 
 # misc
 
