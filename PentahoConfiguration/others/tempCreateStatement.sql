@@ -1,10 +1,10 @@
-delimiter $$
+CREATE DATABASE `temp` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-CREATE DATABASE `temp` /*!40100 DEFAULT CHARACTER SET latin1 */$$
+use temp
 
-USE temp
-
-delimiter $$
+CREATE TABLE `sample` (
+  `id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Temp` (
   `deviceTypeId` int(11) DEFAULT NULL,
@@ -13,15 +13,12 @@ CREATE TABLE `Temp` (
   `parameterName` tinytext,
   `parameterUnit` tinytext,
   `parameterDescription` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `TempDataMetadata` (
   `Timestamp` datetime DEFAULT NULL,
   `Parameter` varchar(100) DEFAULT NULL,
-  `Value` bigint(20) DEFAULT NULL,
+  `Value` double DEFAULT NULL,
   `Goup_ID` int(11) DEFAULT NULL,
   `X` bigint(20) DEFAULT NULL,
   `Y` bigint(20) DEFAULT NULL,
@@ -36,17 +33,11 @@ CREATE TABLE `TempDataMetadata` (
   `lengthY` double DEFAULT NULL,
   `angle` double DEFAULT NULL,
   `time` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `TempDateTime` (
   `Timestamp` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `TempDevice` (
   `sourceTypeId` int(11) DEFAULT NULL,
@@ -59,17 +50,7 @@ CREATE TABLE `TempDevice` (
   `lengthY` tinytext,
   `angle` double DEFAULT NULL,
   `timestamp` tinytext
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
-
-CREATE TABLE `sample` (
-  `id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `tempSequenceIDGenerator` (
   `Goup_ID` int(11) DEFAULT NULL,
@@ -81,13 +62,10 @@ CREATE TABLE `tempSequenceIDGenerator` (
   `ParameterID` int(11) DEFAULT NULL,
   `DateTime_ID` int(11) DEFAULT NULL,
   `Signal_ID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `tempSignal` (
-  `Value` bigint(20) DEFAULT NULL,
+  `Value` double DEFAULT NULL,
   `Source_ID` varchar(200) DEFAULT NULL,
   `Coordinates_ID` int(11) DEFAULT NULL,
   `Integration_ID` int(11) DEFAULT NULL,
@@ -95,14 +73,36 @@ CREATE TABLE `tempSignal` (
   `DateTime_ID` int(11) DEFAULT NULL,
   `Group_ID` int(11) DEFAULT NULL,
   `Timestamp` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
-
-
-delimiter $$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `tempSignalHasDateTime` (
   `DateTime_ID` int(11) DEFAULT NULL,
   `Signal_ID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `tmpsignalWithSeqID` (
+  `Timestamp` datetime DEFAULT NULL,
+  `Parameter` varchar(100) DEFAULT NULL,
+  `Value` double DEFAULT NULL,
+  `Goup_ID` int(11) DEFAULT NULL,
+  `X` bigint(20) DEFAULT NULL,
+  `Y` bigint(20) DEFAULT NULL,
+  `Z` double DEFAULT NULL,
+  `updateDate` varchar(255) DEFAULT NULL,
+  `sourceId` varchar(255) DEFAULT NULL,
+  `sourceTypeId` varchar(255) DEFAULT NULL,
+  `serial` varchar(255) DEFAULT NULL,
+  `sourceDescription` varchar(255) DEFAULT NULL,
+  `pathToRScript` varchar(255) DEFAULT NULL,
+  `lengthX` double DEFAULT NULL,
+  `lengthY` double DEFAULT NULL,
+  `angle` double DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  `Source_ID` varchar(200) DEFAULT NULL,
+  `Coordinates_ID` int(11) DEFAULT NULL,
+  `Integration_ID` int(11) DEFAULT NULL,
+  `ParameterID` int(11) DEFAULT NULL,
+  `DateTime_ID` int(11) DEFAULT NULL,
+  `Signal_ID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

@@ -2,7 +2,7 @@
 		<updateDate>2015-07-07 13:40:00</updateDate> <!-- we need a good name -->
 		<sourceId>PluvioNr01</sourceId>
 		<sourceTypeId>OttPluvio2</sourceTypeId>
-		<serial></serial>
+		<serial>PL123</serial>
 		<sourceDescription>This is one of the 5 Ott Pluvio2 Rain Gauges we have. From now on its called PluvioNr01</sourceDescription>
 		<pathToRScript></pathToRScript>
 		<integration>

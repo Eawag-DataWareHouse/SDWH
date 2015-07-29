@@ -49,7 +49,8 @@ do
 	siteMetaFile=$source$instances"site_metadata.xml"
 	dataFile=${source}${instances}"data/data_"${instances::-1}".csv"
 	validationFile=$source"valueDefinition.xml"
-
+	rawDataPath=${source}${instances}"rawData"
+	
 	echo  "parameterFile:	  $parameterFile" >> $logFileMetadata
 	echo  "sourceTypeMetaFile: $sourceTypeMetaFile" >> $logFileMetadata
 	echo  "sourceMetaFile:     $sourceMetaFile" >> $logFileMetadata
