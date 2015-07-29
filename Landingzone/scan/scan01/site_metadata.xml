@@ -1,7 +1,11 @@
 <siteMetadata>
-	<sourceTypeName>UVvisSpectrometer</sourceTypeName>
 	<name>scan01Dresden</name>
-	<siteDescription>ms01Dresden</siteDescription>
+	<siteDescription>
+	All the details of the site.All the details
+	of the site.All the details of the site.All the details of the
+	site.All the details of the site.All the details of the
+	site.All the details of the site.
+	</siteDescription>
 	<street>Flensburger Straße</street>
 	<city>Schacht 24G35, Mischsystem</city>
 	<coordinates>
@@ -12,16 +16,16 @@
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/24G35_regenwetter.jpg</pathToThePicture>
 		<description>one</description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/IMG_0312.JPG</pathToThePicture>
 		<description>two</description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/IMG_0732.JPG</pathToThePicture>
 		<description>three</description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 </siteMetadata>

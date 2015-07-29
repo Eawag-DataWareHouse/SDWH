@@ -1,5 +1,4 @@
 <siteMetadata>
-	<sourceTypeName>Ott Pluvio 2</sourceTypeName>
 	<name>Adliswil Rain 01</name>
 	<siteDescription>Besides the pumping House at Soodmatte in Adliswil (ZH)</siteDescription>
 	<street>Soodstrasse 50</street>
@@ -12,16 +11,16 @@
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Rain01PumpingStation.JPG</pathToThePicture>
 		<description>Pluviometer at Adliswil Rain 01</description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Raingauge_LoggerBox.JPG</pathToThePicture>
 		<description>Outside of the measurement Box</description>
-		<date></date>
+		<date>2015/02/15 23:00:00.000</date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Loggerinst_rain1_DuoSens_Modem.JPG</pathToThePicture>
-		<description>Inside of the measurement box</description>
-		<date></date>
+		<description>Inside of the measurement box. Showing the battery, the Ott DuoSens Datalogger and the attached modem for data transmission</description>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 </siteMetadata>

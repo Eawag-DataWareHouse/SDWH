@@ -1,5 +1,4 @@
 <siteMetadata>
-	<sourceTypeName>UVvisSpectrometer</sourceTypeName>
 	<name>scan02Dresden</name>
 	<siteDescription>ms02Dresden</siteDescription>
 	<street>Ludwig-Kugelmannstr.</street>
@@ -12,16 +11,16 @@
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/kugelmann_plan.pdf</pathToThePicture>
 		<description></description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/sitemap.jpg</pathToThePicture>
 		<description></description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/ms02Dresden_manhole.jpg</pathToThePicture>
 		<description></description>
-		<date></date>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 </siteMetadata>

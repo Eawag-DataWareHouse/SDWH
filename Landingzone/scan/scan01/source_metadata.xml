@@ -1,10 +1,8 @@
 <sourceMetadata>
-		<updateDate>2015-04-07 01:02:23</updateDate> <!-- we need a good name -->
 		<sourceId>11280256_50_0x0100_spectro::lyser_INFLUENTV160</sourceId>
 		<sourceTypeId>123</sourceTypeId>
 		<serial>11280256</serial>
 		<sourceDescription></sourceDescription>
-		<pathToRScript></pathToRScript>
 		<integration>
 			<lengthX></lengthX>
 			<lengthY></lengthY>
