@@ -53,6 +53,8 @@ Installation:
 
 6. unpack it and copy the `*.jar` file to `/home/datalab/data-integration/lib`
 
+7. Increase the amount of RAM Pentaho is alowed to use: edit the
+variable `PENTAHO_DI_JAVA_OPTIONS` in the file `/home/datalab/data-integration/spoon.sh`.
 
 
 MariaDB
