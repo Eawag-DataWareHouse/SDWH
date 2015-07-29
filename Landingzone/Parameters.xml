@@ -1,32 +1,32 @@
 <parameters>
-<parameter id='absorbance 200.00_nm'>
+<parameter>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
 			<parameterName>Absorbance 200.00_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
-			<parameterDescription>absorbance at 200.00 nm wavelength</parameterDescription>		
+			<parameterDescription>absorbance at 200.00 nm wavelength</parameterDescription>
 </parameter>
-<parameter id='Absorbance 202.50_nm'>
+<parameter>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
 			<parameterName>Absorbance 202.50_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
-			<parameterDescription>absorbance at 202.50 nm wavelength</parameterDescription>				
+			<parameterDescription>absorbance at 202.50 nm wavelength</parameterDescription>
 </parameter>
-<parameter id='Absorbance 205.00_nm'>
+<parameter>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
 			<parameterName>Absorbance 205.00_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
-			<parameterDescription>absorbance at 205.00 nm wavelength</parameterDescription>				
+			<parameterDescription>absorbance at 205.00 nm wavelength</parameterDescription>
 </parameter>
-<parameter id='Rain intensity'>
+<parameter>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
 			<parameterName>rain intensity</parameterName>
 			<parameterUnit>mm/h</parameterUnit>
-			<parameterDescription></parameterDescription>				
+			<parameterDescription></parameterDescription>
 </parameter>
-<parameter id='Rain intensity pluvio'>
+<parameter>
 			<!-- parameter-name has to be identically to the parameter from the std format  -->
 			<parameterName>rain intensity pluvio</parameterName>
 			<parameterUnit>mm/min</parameterUnit>
-			<parameterDescription>measured precipitation amount per minute</parameterDescription>				
+			<parameterDescription>measured precipitation amount per minute</parameterDescription>
 </parameter>
 </parameters>

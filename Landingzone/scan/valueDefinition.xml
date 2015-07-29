@@ -1,10 +1,10 @@
 <valueDefinition>
-<definition id='NA'>
+<definition>
 		<sourceTypeId>123</sourceTypeId>
 		<name>NA</name>
 		<value>-1</value>
 </definition>
-<definition id='Null'>		
+<definition>
 		<sourceTypeId>123</sourceTypeId>
 		<name>Null</name>
 		<value>-2</value>

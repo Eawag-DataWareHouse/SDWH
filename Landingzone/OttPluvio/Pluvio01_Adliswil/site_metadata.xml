@@ -9,17 +9,17 @@
 		<coordY>241498</coordY>
 		<coordZ></coordZ>
 	</coordinates>
-	<picture id="Adl_R01_situation">
-		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Rain01PumpingStation.JPG</pathToThePicture>                    
+	<picture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Rain01PumpingStation.JPG</pathToThePicture>
 		<description>Pluviometer at Adliswil Rain 01</description>
 		<date></date>
 	</picture>
-	<picture id="Adl_R01_outsideBox">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Raingauge_LoggerBox.JPG</pathToThePicture>
 		<description>Outside of the measurement Box</description>
 		<date></date>
 	</picture>
-	<picture id="Adl_R01_insideBox">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Loggerinst_rain1_DuoSens_Modem.JPG</pathToThePicture>
 		<description>Inside of the measurement box</description>
 		<date></date>

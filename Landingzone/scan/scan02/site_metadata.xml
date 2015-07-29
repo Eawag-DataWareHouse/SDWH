@@ -9,17 +9,17 @@
 		<coordY></coordY>
 		<coordZ></coordZ>
 	</coordinates>
-	<picture id="one">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/kugelmann_plan.pdf</pathToThePicture>
 		<description></description>
 		<date></date>
 	</picture>
-	<picture id="two">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/sitemap.jpg</pathToThePicture>
 		<description></description>
 		<date></date>
 	</picture>
-	<picture id="three">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/ms02Dresden_manhole.jpg</pathToThePicture>
 		<description></description>
 		<date></date>

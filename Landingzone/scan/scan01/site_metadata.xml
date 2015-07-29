@@ -9,17 +9,17 @@
 		<coordY></coordY>
 		<coordZ></coordZ>
 	</coordinates>
-	<picture id="one">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/24G35_regenwetter.jpg</pathToThePicture>
 		<description>one</description>
 		<date></date>
 	</picture>
-	<picture id="two">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/IMG_0312.JPG</pathToThePicture>
 		<description>two</description>
 		<date></date>
 	</picture>
-	<picture id="three">
+	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/IMG_0732.JPG</pathToThePicture>
 		<description>three</description>
 		<date></date>
