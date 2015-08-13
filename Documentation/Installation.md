@@ -112,7 +112,8 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 ```
 3. To install the R
 ```
-sudo apt-get update sudo apt-get install r-base r-base-dev
+sudo apt-get update
+sudo apt-get install r-base r-base-dev
 ```
 
 
