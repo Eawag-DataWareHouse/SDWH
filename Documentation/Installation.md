@@ -170,8 +170,8 @@ Note: The  MySQL command line interface can be entered via: `mysql -u root -p`
 
 Execute the following sql scripts from shell:
 ```
-mysql -u root -p < ~/SDWH/PentahoConfiguration/others/tempCreateStatement.sql
-mysql -u root -p < ~/SDWH/PentahoConfiguration/others/CreateStatement.sql
+mysql -u root -p < ~/SDWH/PentahoConfiguration/SQLqueries/tempCreateStatement.sql
+mysql -u root -p < ~/SDWH/PentahoConfiguration/SQLqueries/CreateStatement.sql
 ```
 
 Then open MySQL workbench and create a new connection:
