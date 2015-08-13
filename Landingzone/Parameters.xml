@@ -29,4 +29,23 @@
 			<parameterUnit>mm/min</parameterUnit>
 			<parameterDescription>measured precipitation amount per minute</parameterDescription>
 </parameter>
+<parameter>
+			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<parameterName>rain intensity pluvio</parameterName>
+			<parameterUnit>mm/min</parameterUnit>
+			<parameterDescription>measured precipitation amount per minute</parameterDescription>
+</parameter>
+<parameter>
+			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<parameterName>rain intensity pluvio</parameterName>
+			<parameterUnit>mm/deciminute</parameterUnit>
+			<parameterDescription>measured precipitation blabla amount per minute</parameterDescription>
+</parameter>
+<parameter>
+			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<parameterName>rain blabla intensity pluvio</parameterName>
+			<parameterUnit>mm/deciminute</parameterUnit>
+			<parameterDescription>measured precipitation blabla amount per minute</parameterDescription>
+</parameter>
+
 </parameters>

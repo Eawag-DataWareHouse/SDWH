@@ -27,7 +27,7 @@ device.instance <- "scan02"
 ## define coordinate
 xcoor <- 580100
 ycoor <- 255317
-zcoor <- 455.3
+zcoor <- 440
 
 
 

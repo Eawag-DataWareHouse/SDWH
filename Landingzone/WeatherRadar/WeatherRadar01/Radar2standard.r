@@ -116,7 +116,7 @@ rain.code <- c(-10, 1e-04, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45,
                203.05, 204.05, 205.05, 206.05, 207.05, 208.05, 209.05, 210.05,
                220.05, 230.05, 240.05, 250.05, 260.05, 270.05, 280.05, 290.05,
                300.05, 310.05, 320.05, 330.05, 340.05, -90, -90, -90,
-               -90, 9999.9)
+               -90, -100)
 
 ## get time stamp from file name
 split<-gregexpr(pattern ='/',image)[[1]]
@@ -142,6 +142,8 @@ df.out <- cbind(expand.grid(X=xcoor:(xcoor+n.pixel.x-1),
                             Z="",
                             Timestamp=time.for)
 df.out <- df.out[,c(7,4,3,5,1,2,6)]
+df.out$X<-df.out$X*1000
+df.out$Y<-df.out$Y*1000
 
 ## remove values outside of radar coverage
 Sdf.out <- df.out[df.out$Value < 9999,]

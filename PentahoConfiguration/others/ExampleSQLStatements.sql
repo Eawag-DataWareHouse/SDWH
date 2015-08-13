@@ -1,3 +1,24 @@
+#Tested standard Query for Source Instance and date range
+
+SELECT dt.Date, s.Value, src.Source_ID, sqi.DQ_Status, dq.DQ_Description, par.Name, par.Unit 
+FROM    WaterResearch.factTable as s
+LEFT JOIN  WaterResearch.SignalHasQualityInfo as sqi
+      ON s.signal_ID=sqi.signal_ID
+LEFT JOIN  WaterResearch.signalHasDateTime as sdt
+      ON s.signal_ID=sdt.signal_ID
+LEFT JOIN  WaterResearch.DateTime as dt
+      ON dt.DateTime_ID=sdt.DateTime_ID
+LEFT JOIN  WaterResearch.Source as src
+      ON s.Source_ID=src.Source_ID
+LEFT JOIN  WaterResearch.DQ_Data as dq
+      ON sqi.DQ_ID=dq.DQ_ID
+LEFT JOIN  WaterResearch.Parameter as par
+      ON s.Parameter_ID=par.ParameterID
+WHERE src.Serial="PL123" and
+      dt.Date BETWEEN '2013-03-22 14:03:00' AND '2013-03-22 14:35:00'
+Order BY dt.Date asc;
+
+#Exampels from Fasika
 #Give me the rain from Weather radar at coordinate(x,Y) between time t1 and t2
 
 SELECT * 

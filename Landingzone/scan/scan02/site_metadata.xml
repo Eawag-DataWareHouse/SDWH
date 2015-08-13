@@ -4,9 +4,9 @@
 	<street>Ludwig-Kugelmannstr.</street>
 	<city>Dresden-Lockwitz, Schacht 36M39, Mischsystem</city>
 	<coordinates>
-		<coordX></coordX>
-		<coordY></coordY>
-		<coordZ></coordZ>
+		<coordX>580100</coordX>
+		<coordY>255317</coordY>
+		<coordZ>440</coordZ>
 	</coordinates>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan02/rawData/kugelmann_plan.pdf</pathToThePicture>

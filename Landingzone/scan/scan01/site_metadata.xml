@@ -9,9 +9,9 @@
 	<street>Flensburger Straße</street>
 	<city>Schacht 24G35, Mischsystem</city>
 	<coordinates>
-		<coordX></coordX>
-		<coordY></coordY>
-		<coordZ></coordZ>
+		<coordX>580000</coordX>
+		<coordY>255300</coordY>
+		<coordZ>455.3</coordZ>
 	</coordinates>
 	<picture>
 		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/scan/scan01/rawData/24G35_regenwetter.jpg</pathToThePicture>
