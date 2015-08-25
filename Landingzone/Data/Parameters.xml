@@ -1,48 +1,48 @@
 <parameters>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>Absorbance 200.00_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
 			<parameterDescription>absorbance at 200.00 nm wavelength</parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>Absorbance 202.50_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
 			<parameterDescription>absorbance at 202.50 nm wavelength</parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>Absorbance 205.00_nm</parameterName>
 			<parameterUnit>m-1</parameterUnit>
 			<parameterDescription>absorbance at 205.00 nm wavelength</parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>rain intensity</parameterName>
 			<parameterUnit>mm/h</parameterUnit>
 			<parameterDescription></parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>rain intensity pluvio</parameterName>
 			<parameterUnit>mm/min</parameterUnit>
 			<parameterDescription>measured precipitation amount per minute</parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>rain intensity pluvio</parameterName>
 			<parameterUnit>mm/min</parameterUnit>
 			<parameterDescription>measured precipitation amount per minute</parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>rain intensity pluvio</parameterName>
 			<parameterUnit>mm/deciminute</parameterUnit>
 			<parameterDescription>measured precipitation blabla amount per minute</parameterDescription>
 </parameter>
 <parameter>
-			<!-- parameter-name has to be identically to the parameter from the std format  -->
+			<!-- parameter-name has to be unique and identical to the parameter from the std format  -->
 			<parameterName>rain blabla intensity pluvio</parameterName>
 			<parameterUnit>mm/deciminute</parameterUnit>
 			<parameterDescription>measured precipitation blabla amount per minute</parameterDescription>

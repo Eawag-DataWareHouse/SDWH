@@ -1,0 +1,12 @@
+<sourceMetadata>
+		<sourceName>SCAN_nr3_mode1_manhole25_Fehraltdorf</sourceName>
+		<sourceTypeName>UVvisSpectrometer</sourceTypeName>
+		<serial>11280256</serial>
+		<sourceDescription>This is a scan probe bought by Chris</sourceDescription>
+		<integration>
+			<lengthX></lengthX>
+			<lengthY></lengthY>
+			<angle></angle>
+			<time></time>
+		</integration>
+</sourceMetadata>

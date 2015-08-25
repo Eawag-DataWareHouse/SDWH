@@ -1,6 +1,6 @@
 #Tested standard Query for Source Instance and date range
 
-SELECT dt.Date, s.Value, src.Source_ID, sqi.DQ_Status, dq.DQ_Description, par.Name, par.Unit 
+SELECT dt.Date, s.Value, src.sourceName, sqi.DQ_Status, dq.DQ_Description, par.Name, par.Unit 
 FROM    WaterResearch.factTable as s
 LEFT JOIN  WaterResearch.SignalHasQualityInfo as sqi
       ON s.signal_ID=sqi.signal_ID
@@ -69,7 +69,7 @@ SELECT * FROM WaterResearch.Site;
 
 
 #Give me all sources for which measurements are available at Site S
-SELECT src.Source_ID, src.SourceTypeID, src.Serial, src.Description 
+SELECT src.Source_ID, src.SourceType_Name, src.Serial, src.Description 
 FROM    WaterResearch.factTable as s,
         WaterResearch.Source as src,
         WaterResearch.Coordinates as coord,

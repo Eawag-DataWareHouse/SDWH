@@ -73,7 +73,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;04&#x2f;21 14&#x3a;15&#x3a;59.361</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#x2f;07&#x2f;28 11&#x3a;52&#x3a;41.903</modified_date>
+  <modified_date>2015&#x2f;08&#x2f;20 14&#x3a;48&#x3a;00.288</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -199,10 +199,6 @@
         <key>
           <name>siteDescription</name>
           <lookup>Description</lookup>
-        </key>
-        <key>
-          <name>Picture_ID</name>
-          <lookup>Picture_ID</lookup>
         </key>
         <return>
           <name>Site_ID</name>
@@ -358,23 +354,8 @@
     </file>
     <fields>
       <field>
-        <name>sourceTypeName</name>
-        <xpath>&#x2f;siteMetadata&#x2f;sourceTypeName</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
         <name>name</name>
-        <xpath>&#x2f;siteMetadata&#x2f;name</xpath>
+        <xpath>&#x2f;siteMetadata&#x2f;siteName</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>

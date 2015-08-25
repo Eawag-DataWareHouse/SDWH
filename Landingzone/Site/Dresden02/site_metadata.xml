@@ -1,0 +1,30 @@
+<siteMetadata>
+	<siteName>scan02Dresden</siteName>  <!-- must be unique! -->
+	<siteDescription>ms02Dresden</siteDescription>
+	<street>Ludwig-Kugelmannstr.</street>
+	<city>Dresden-Lockwitz, Schacht 36M39, Mischsystem</city>
+	<coordinates>
+		<coordX>580100</coordX> <!-- must be *identical* to the one in the standardized file format -->
+		<coordY>255317</coordY>
+		<coordZ>440</coordZ>
+	</coordinates>
+
+<!-- If you add a new picture, either "description" or "date" has to be different from all existing pictures in the database,
+if both are the same, the picture is not loaded! If you change the "date" or "description" of an already existing picture, it will be duplicated in the database. -->
+
+	<picture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/Site/Dresden02/pictures/kugelmann_plan.pdf</pathToThePicture>
+		<description>kugelmann_plan</description>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
+	</picture>
+	<picture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/Site/Dresden02/pictures/sitemap.jpg</pathToThePicture>
+		<description>sitemap</description>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
+	</picture>
+	<picture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/Site/Dresden02/pictures/ms02Dresden_manhole.jpg</pathToThePicture>
+		<description>manhole</description>
+		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
+	</picture>
+</siteMetadata>

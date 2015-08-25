@@ -8,11 +8,11 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;03&#x2f;24 14&#x3a;21&#x3a;23.056</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2015&#x2f;07&#x2f;28 17&#x3a;53&#x3a;28.624</modified_date>
+  <modified_date>2015&#x2f;08&#x2f;20 15&#x3a;16&#x3a;20.960</modified_date>
     <parameters>
         <parameter>
             <name>dataFile</name>
-            <default_value>&#x2f;home&#x2f;data&#x2f;deviceTypes&#x2f;WeatherRadar&#x2f;WeatherRadar01&#x2f;data&#x2f;data_WeatherRadar01.csv</default_value>
+            <default_value>&#x2f;home&#x2f;dwhtest&#x2f;SDWH&#x2f;Landingzone&#x2f;Data&#x2f;OttPluvio&#x2f;Pluvio01_Adliswil&#x2f;data&#x2f;data_Pluvio01_Adliswil.csv</default_value>
             <description/>
         </parameter>
         <parameter>
@@ -22,12 +22,12 @@
         </parameter>
         <parameter>
             <name>rawdataPath</name>
-            <default_value>&#x2f;home&#x2f;data&#x2f;deviceTypes&#x2f;WeatherRadar&#x2f;WeatherRadar01&#x2f;rawData</default_value>
+            <default_value>&#x2f;home&#x2f;dwhtest&#x2f;SDWH&#x2f;Landingzone&#x2f;Data&#x2f;OttPluvio&#x2f;Pluvio01_Adliswil&#x2f;rawData</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>sourceMetaFile</name>
-            <default_value>&#x2f;home&#x2f;data&#x2f;deviceTypes&#x2f;WeatherRadar&#x2f;WeatherRadar01&#x2f;source_metadata.xml</default_value>
+            <default_value>&#x2f;home&#x2f;dwhtest&#x2f;SDWH&#x2f;Landingzone&#x2f;Data&#x2f;OttPluvio&#x2f;Pluvio01_Adliswil&#x2f;source_metadata.xml</default_value>
             <description/>
         </parameter>
     </parameters>

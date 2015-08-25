@@ -1,25 +1,29 @@
 <siteMetadata>
-	<name>Adliswil Rain 01</name>
+	<siteName>Adliswil Rain 01</siteName> <!-- must be unique! -->
 	<siteDescription>Besides the pumping House at Soodmatte in Adliswil (ZH)</siteDescription>
 	<street>Soodstrasse 50</street>
 	<city>8134 Adliswil, Switzerland</city>
 	<coordinates>
-		<coordX>682085</coordX>
+		<coordX>682085</coordX>  <!-- all coordinates (x,y,z) must be *identical* to the one in the standardized file format -->
 		<coordY>241498</coordY>
 		<coordZ></coordZ>
 	</coordinates>
+
+<!-- If you add a new picture, either "description" or "date" has to be different from all existing pictures in the database,
+if both are the same, the picture is not loaded! If you change the "date" or "description" of an already existing picture, it will be duplicated in the database. -->
+
 	<picture>
-		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Rain01PumpingStation.JPG</pathToThePicture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/Site/AdliswilRain01/pictures/Rain01PumpingStation.JPG</pathToThePicture>
 		<description>Pluviometer at Adliswil Rain 01</description>
 		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
-		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Raingauge_LoggerBox.JPG</pathToThePicture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/Site/AdliswilRain01/pictures/Raingauge_LoggerBox.JPG</pathToThePicture>
 		<description>Outside of the measurement Box</description>
 		<date>2015/02/15 23:00:00.000</date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>
 	<picture>
-		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/OttPluvio/Pluvio01_Adliswil/pictures/Loggerinst_rain1_DuoSens_Modem.JPG</pathToThePicture>
+		<pathToThePicture>/home/dwhtest/SDWH/Landingzone/Site/AdliswilRain01/pictures/Loggerinst_rain1_DuoSens_Modem.JPG</pathToThePicture>
 		<description>Inside of the measurement box. Showing the battery, the Ott DuoSens Datalogger and the attached modem for data transmission</description>
 		<date></date> <!-- date format has to be exactely: yyyy/MM/dd HH:mm:ss.SSS-->
 	</picture>

@@ -73,7 +73,7 @@
   <created_user/>
   <created_date>2013&#x2f;08&#x2f;22 22&#x3a;40&#x3a;59.566</created_date>
   <modified_user/>
-  <modified_date>2015&#x2f;07&#x2f;28 14&#x3a;48&#x3a;14.812</modified_date>
+  <modified_date>2015&#x2f;08&#x2f;20 16&#x3a;02&#x3a;23.706</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -109,11 +109,11 @@
   </connection>
   <order>
   <hop> <from>Get File Names</from><to>Java Script Value</to><enabled>Y</enabled> </hop>
-  <hop> <from>Java Script Value</from><to>Table output Pictures</to><enabled>Y</enabled> </hop>
   <hop> <from>Database lookup</from><to>Get File Names</to><enabled>Y</enabled> </hop>
   <hop> <from>Get data from XML site_metadata.xml</from><to>Filter rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>Database lookup</to><enabled>Y</enabled> </hop>
   <hop> <from>Filter rows</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Java Script Value</from><to>Combination lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Database lookup</name>
@@ -293,7 +293,7 @@
       </field>
       <field>
         <name>name</name>
-        <xpath>&#x2f;siteMetadata&#x2f;name</xpath>
+        <xpath>&#x2f;siteMetadata&#x2f;siteName</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -458,7 +458,7 @@
     <sizeFieldName/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>134</xloc>
+      <xloc>133</xloc>
       <yloc>45</yloc>
       <draw>Y</draw>
       </GUI>
@@ -468,7 +468,7 @@
     <name>Java Script Value</name>
     <type>ScriptValueMod</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -501,8 +501,8 @@
     </step>
 
   <step>
-    <name>Table output Pictures</name>
-    <type>TableOutput</type>
+    <name>Combination lookup&#x2f;update</name>
+    <type>CombinationLookup</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -511,49 +511,48 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>MariaDBConnection</connection>
-    <schema/>
-    <table>Picture</table>
-    <commit>100</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>Description</column_name>
-          <stream_name>description</stream_name>
-        </field>
-        <field>
-          <column_name>Date</column_name>
-          <stream_name>date</stream_name>
-        </field>
-        <field>
-          <column_name>BLOBs</column_name>
-          <stream_name>content</stream_name>
-        </field>
-        <field>
-          <column_name>Site_ID</column_name>
-          <stream_name>Site_ID</stream_name>
-        </field>
-        <field>
-          <column_name>PictureType</column_name>
-          <stream_name>pictureType</stream_name>
-        </field>
-    </fields>
+      <schema/>
+      <table>Picture</table>
+      <connection>MariaDBConnection</connection>
+      <commit>100</commit>
+      <cache_size>9999</cache_size>
+      <replace>N</replace>
+      <preloadCache>N</preloadCache>
+      <crc>N</crc>
+      <crcfield>hashcode</crcfield>
+      <fields>
+        <key>
+          <name>date</name>
+          <lookup>Date</lookup>
+        </key>
+        <key>
+          <name>description</name>
+          <lookup>Description</lookup>
+        </key>
+        <key>
+          <name>pictureType</name>
+          <lookup>PictureType</lookup>
+        </key>
+        <key>
+          <name>Site_ID</name>
+          <lookup>Site_ID</lookup>
+        </key>
+        <key>
+          <name>content</name>
+          <lookup>BLOBs</lookup>
+        </key>
+        <return>
+          <name>Picture_ID</name>
+          <creation_method>tablemax</creation_method>
+          <use_autoinc>N</use_autoinc>
+        </return>
+      </fields>
+      <sequence/>
+      <last_update_field/>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>668</xloc>
-      <yloc>527</yloc>
+      <xloc>742</xloc>
+      <yloc>428</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

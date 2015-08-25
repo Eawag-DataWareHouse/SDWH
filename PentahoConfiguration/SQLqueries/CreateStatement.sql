@@ -8,7 +8,7 @@ CREATE TABLE `Coordinates` (
   `Coord_X` double DEFAULT NULL,
   `Coord_Z` double DEFAULT NULL,
   PRIMARY KEY (`Coordinates_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=304 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `DateTime` (
   `DateTime_ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -35,14 +35,14 @@ CREATE TABLE `DQ_Data` (
   `DQ_Description` text,
   `Manual` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`DQ_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `factTable` (
   `Value` double DEFAULT NULL,
   `Coordinates_ID` int(11) DEFAULT NULL,
   `Integration_ID` int(11) DEFAULT NULL,
   `Parameter_ID` int(11) DEFAULT NULL,
-  `Source_ID` varchar(200) DEFAULT NULL,
+  `Source_ID` int(11) DEFAULT NULL,
   `Signal_ID` int(11) DEFAULT NULL,
   UNIQUE KEY `Signal_ID_UNIQUE` (`Signal_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -52,9 +52,9 @@ CREATE TABLE `Integration` (
   `Length_x` double DEFAULT NULL,
   `Length_y` double DEFAULT NULL,
   `Angle` double DEFAULT NULL,
-  `Time` date DEFAULT NULL,
+  `Time` int(11) DEFAULT NULL,
   PRIMARY KEY (`Integration_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Parameter` (
   `ParameterID` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,7 +62,7 @@ CREATE TABLE `Parameter` (
   `Description` varchar(100) DEFAULT NULL,
   `Unit` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ParameterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Picture` (
   `Picture_ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -72,7 +72,7 @@ CREATE TABLE `Picture` (
   `Site_ID` int(11) DEFAULT NULL,
   `PictureType` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`Picture_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `signalHasDateTime` (
   `DateTime_ID` int(11) DEFAULT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE `SignalHasQualityInfo` (
   `DQ_Status` varchar(45) DEFAULT NULL,
   `QualityInfo_ID` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`QualityInfo_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Site` (
   `Site_ID` int(11) NOT NULL AUTO_INCREMENT,
@@ -96,30 +96,29 @@ CREATE TABLE `Site` (
   `Description` text,
   `Coordinates_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`Site_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Source` (
-  `SourceType_ID` varchar(200) NOT NULL,
+  `SourceType_Name` varchar(200) NOT NULL,
   `Serial` varchar(100) DEFAULT NULL,
   `Description` text,
-  `Source_ID` varchar(200) NOT NULL,
-  `sur_key` int(11) NOT NULL,
-  PRIMARY KEY (`SourceType_ID`,`sur_key`,`Source_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Source_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `sourceName` varchar(200) NOT NULL,
+  PRIMARY KEY (`Source_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `SourceType` (
-  `SourceType_ID` varchar(200) NOT NULL,
+  `SourceType_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` text,
   `Descritpion` text,
-  `sur_key` int(11) NOT NULL,
-  PRIMARY KEY (`SourceType_ID`,`sur_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`SourceType_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 CREATE TABLE `ValueDefinition` (
-  `SourceType_ID` int(11) DEFAULT NULL,
-  `Code_ID` int(11) NOT NULL,
+  `SourceType_Name` varchar(200) DEFAULT NULL,
+  `Code_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
   `Value` int(11) DEFAULT NULL,
   PRIMARY KEY (`Code_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 

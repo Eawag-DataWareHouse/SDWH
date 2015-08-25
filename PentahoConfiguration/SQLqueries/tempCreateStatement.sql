@@ -23,16 +23,14 @@ CREATE TABLE `TempDataMetadata` (
   `X` bigint(20) DEFAULT NULL,
   `Y` bigint(20) DEFAULT NULL,
   `Z` double DEFAULT NULL,
-  `updateDate` tinytext,
-  `sourceId` tinytext,
-  `sourceTypeId` tinytext,
   `serial` tinytext,
   `sourceDescription` tinytext,
-  `pathToRScript` tinytext,
   `lengthX` double DEFAULT NULL,
   `lengthY` double DEFAULT NULL,
   `angle` double DEFAULT NULL,
-  `time` date DEFAULT NULL
+  `time` int(11) DEFAULT NULL,
+  `sourceName` varchar(200) DEFAULT NULL,
+  `sourceTypeName` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `TempDateTime` (
@@ -56,7 +54,7 @@ CREATE TABLE `tempSequenceIDGenerator` (
   `Goup_ID` int(11) DEFAULT NULL,
   `sourceId` varchar(255) DEFAULT NULL,
   `sourceTypeId` varchar(255) DEFAULT NULL,
-  `Source_ID` varchar(100) DEFAULT NULL,
+  `Source_ID` int(11) DEFAULT NULL,
   `Coordinates_ID` int(11) DEFAULT NULL,
   `Integration_ID` int(11) DEFAULT NULL,
   `ParameterID` int(11) DEFAULT NULL,
@@ -66,7 +64,7 @@ CREATE TABLE `tempSequenceIDGenerator` (
 
 CREATE TABLE `tempSignal` (
   `Value` double DEFAULT NULL,
-  `Source_ID` varchar(200) DEFAULT NULL,
+  `Source_ID` int(11) DEFAULT NULL,
   `Coordinates_ID` int(11) DEFAULT NULL,
   `Integration_ID` int(11) DEFAULT NULL,
   `ParameterID` int(11) DEFAULT NULL,
@@ -88,21 +86,21 @@ CREATE TABLE `tmpsignalWithSeqID` (
   `X` bigint(20) DEFAULT NULL,
   `Y` bigint(20) DEFAULT NULL,
   `Z` double DEFAULT NULL,
-  `updateDate` varchar(255) DEFAULT NULL,
   `sourceId` varchar(255) DEFAULT NULL,
   `sourceTypeId` varchar(255) DEFAULT NULL,
   `serial` varchar(255) DEFAULT NULL,
   `sourceDescription` varchar(255) DEFAULT NULL,
-  `pathToRScript` varchar(255) DEFAULT NULL,
   `lengthX` double DEFAULT NULL,
   `lengthY` double DEFAULT NULL,
   `angle` double DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
-  `Source_ID` varchar(200) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `Source_ID` int(11) DEFAULT NULL,
   `Coordinates_ID` int(11) DEFAULT NULL,
   `Integration_ID` int(11) DEFAULT NULL,
   `ParameterID` int(11) DEFAULT NULL,
   `DateTime_ID` int(11) DEFAULT NULL,
-  `Signal_ID` int(11) DEFAULT NULL
+  `Signal_ID` int(11) DEFAULT NULL,
+  `sourceName` varchar(200) DEFAULT NULL,
+  `sourceTypeName` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

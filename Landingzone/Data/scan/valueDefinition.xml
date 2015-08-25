@@ -1,11 +1,11 @@
 <valueDefinition>
 <definition>
-		<sourceTypeId>123</sourceTypeId>
+		<sourceTypeName>UVvisSpectrometer</sourceTypeName>
 		<name>NA</name>
 		<value>-1</value>
 </definition>
 <definition>
-		<sourceTypeId>123</sourceTypeId>
+		<sourceTypeName>UVvisSpectrometer</sourceTypeName>
 		<name>Null</name>
 		<value>-2</value>
 </definition>

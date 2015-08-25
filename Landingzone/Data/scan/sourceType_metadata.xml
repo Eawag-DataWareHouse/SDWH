@@ -1,5 +1,5 @@
 <sourceTypeMetadata>
-		<sourceTypeId>123</sourceTypeId>
+		<!-- sourceTypeName must be unique -->
 		<sourceTypeName>UVvisSpectrometer</sourceTypeName>
 		<sourceTypeDescription>The UV-Vis spectrometer (manufacturer: S::CAN GmbH, Wien) can be used to monitor wastewater quality. The sensor allows in-situ monitoring of COD, soluble COD (CODf), TSS and NO3-N equivalent concentrations by measuring the absorbance of the UV-Vis spectrum.</sourceTypeDescription>
 </sourceTypeMetadata>

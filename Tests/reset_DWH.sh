@@ -27,7 +27,7 @@ echo "Databases deleted"
 
 
 # delete all converted data files
-cd $landingzonepath
+cd $landingzonepath/Data
 
 # find all directories in the landingzone
 for source in $(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
@@ -35,12 +35,12 @@ do
     # find all instances
     for instances in $(find . -maxdepth 2 -mindepth 2 -type d -printf '%f\n')
 	do
-	DIRECTORY="$landingzonepath/$source/$instances"
+	DIRECTORY="$instances"
 
 	# if $DIRECTORY exists
 	if [ -d "$DIRECTORY" ]; then
 	    rm $DIRECTORY/data/*.csv
-	    cd $landingzonepath
+	    cd $landingzonepath/Data
 	fi
     done
 done
@@ -48,7 +48,7 @@ done
 echo "Converted data files deleted"
 
 # produce new empty databases
-mysql -u root --password=DBroot < ~/SDWH/PentahoConfiguration/others/tempCreateStatement.sql
-mysql -u root --password=DBroot < ~/SDWH/PentahoConfiguration/others/CreateStatement.sql
+mysql -u root --password=DBroot < ~/SDWH/PentahoConfiguration/SQLqueries/tempCreateStatement.sql
+mysql -u root --password=DBroot < ~/SDWH/PentahoConfiguration/SQLqueries/CreateStatement.sql
 
 echo "New empty databases created"

@@ -1,6 +1,6 @@
 <sourceMetadata>
-		<sourceId>999999_50_0x0100_spectro::lyser_INFLUENTV160</sourceId>
-		<sourceTypeId>123</sourceTypeId>
+		<sourceName>SCAN_nr1_mode4_CSO11_Fehraltdorf</sourceName>
+		<sourceTypeName>UVvisSpectrometer</sourceTypeName>
 		<serial>123456</serial>
 		<sourceDescription>This is a scan probe bought by Joerg</sourceDescription>
 		<integration>

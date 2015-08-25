@@ -1,60 +1,122 @@
 #!/bin/bash
 
-# if you want to run this shell script only for one instance of a
-# source type, make sure all the other source types of all instances
-# rawData folder is empty, otherwise the standardized data file will
-# be re-generated and this process will be executed again for all
-# instances of all source types. This will create dublicate in the DWH
-# and is a performance issue and the standardized file will be loaded
-# again.
-
-
-# define logfiles
-logFileMetadata="$HOME/SDWH/Logs/autoRun_script_MetadataOutput.log"
-logFileData="$HOME/SDWH/Logs/autoRun_script_DataOutput.log"
-performanceLogFile="$HOME/SDWH/Logs/pentahoPerformance_optimized.log"
+# ---------------------------------
+# -- define paths
 
 # root directory of landing zone
 landingzonepath="$HOME/SDWH/Landingzone"
+
+# root directory of raw data backup
+rawdatabBackupPath="$HOME/SDWH/RawDataBackup"
+
 # path to Pentaho configuration (DI)
 pentahoconfigpath="$HOME/SDWH/PentahoConfiguration"
 
 # name of Pentaho Di Repository
 PentahoRep="PentahoFiles"
 
-# --runConversionScripts is a Pentaho job which calls for
-# runConversionScripts.sh shell script in
-# $landingzonepath/ to run the conversion script
+# define logfiles
+logFileMetadata="$HOME/SDWH/Logs/autoRun_script_MetadataOutput.log"
+logFileData="$HOME/SDWH/Logs/autoRun_script_DataOutput.log"
+performanceLogFile="$HOME/SDWH/Logs/pentahoPerformance_optimized.log"
 
-$HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath'/jobs/runConversionScripts.kjb' \
-    -level=Rawlevel -level=Detailed >> $logFileMetadata
+# ---------------------------------
+# Run split scripts that separate raw files which contain data from more than one source
+# still to be implemented!!!!!!
 
 
+# ---------------------------------
+# -- Run conversions scripts
 
-# --the following loop iterates through all source types under $landingzonepath
-for source in $landingzonepath/*/
+cd $landingzonepath/Data
+# find all directories in the landingzone
+for source in $(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
+do
+    # find all instances
+    for instances in $(find . -maxdepth 2 -mindepth 2 -type d -printf '%f\n')
+    do
+	DIRECTORY="$landingzonepath/Data/$source/$instances"
+ 	# if $DIRECTORY exists
+	if [ -d "$DIRECTORY" ]; then
+
+	    cd $DIRECTORY
+	    # if rawData contains files
+            if [ "$(ls -A rawData/)" ]; then
+ 		echo "Convert files in: $DIRECTORY"
+
+		./RunConversionScript.sh
+
+		# convert 1.23e5 to 1.23E5
+		FILE="$DIRECTORY/data/data_$instances.csv"
+		if [ -f "$FILE" ]; then
+	    	    sed -i 's/\([0-9]\)e\([-+]\)/\1E\2/g' $FILE
+		fi
+
+		# --- move raw data
+
+ 		# create backup directory if it does not yet exists
+ 		mkdir -p "$rawdatabBackupPath/$source/$instances/rawData"
+
+		# move files
+		mv rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
+		echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
+            fi
+
+	    cd $landingzonepath/Data
+	fi
+    done
+done
+
+echo "================================="
+echo "All data converted!"
+
+# ---------------------------------
+# -- Run site Transformation (add site_metadata)
+
+cd $landingzonepath/Site
+for site in */
+do
+    siteMetaFile=$landingzonepath/Site/$site"site_metadata.xml"
+
+    echo  "siteMetaFile: 	  $siteMetaFile" >>$logFileMetadata
+
+    $HOME/datalab/data-integration/kitchen.sh -file=$pentahoconfigpath/jobs/updateSite.kjb \
+	-level=Rawlevel -param:siteMetaFile=$siteMetaFile \
+	-rep=$PentahoRep -level=Detailed >> $logFileMetadata
+
+    echo  "siteMetaFile: 	  $siteMetaFile" >>$logFileData
+
+done
+echo "================================="
+echo "All site meta data updated!"
+
+# ---------------------------------
+# -- import to data base
+#
+# iterate through all source types under $landingzonepath/Data
+for source in $landingzonepath/Data/*/
 do
     cd $source
-    # --the following loop iterates through all source instances under $landingzonepath/$source
+    # iterate through all source instances under $landingzonepath/Data/$source
     for instances in */
     do
 
-	echo "============================================================"
-	echo "We are at: "$source$instances
+	echo "-----------"
+	echo "Import data from: "$source$instances
 
 	#--set parameter values
-	parameterFile=$landingzonepath/Parameters.xml
+	parameterFile=$landingzonepath/Data/"Parameters.xml"
 	sourceTypeMetaFile=$source"sourceType_metadata.xml"
 	sourceMetaFile=$source$instances"source_metadata.xml"
-	siteMetaFile=$source$instances"site_metadata.xml"
+
 	dataFile=${source}${instances}"data/data_"${instances::-1}".csv"
 	validationFile=$source"valueDefinition.xml"
 	rawDataPath=${source}${instances}"rawData"
-	
+
 	echo  "parameterFile:	  $parameterFile" >> $logFileMetadata
 	echo  "sourceTypeMetaFile: $sourceTypeMetaFile" >> $logFileMetadata
 	echo  "sourceMetaFile:     $sourceMetaFile" >> $logFileMetadata
-	echo  "siteMetaFile: 	  $siteMetaFile" >>$logFileMetadata
+
 	echo  "dataFile: 	  $dataFile" >>$logFileMetadata
 	echo  "valueDefinitionFile: 	  $validationFile" >>$logFileMetadata
 	echo  " " >> $logFileMetadata
@@ -79,9 +141,8 @@ do
 	echo " " >> $logFileMetadata
 
 
-	echo "--------------"
+	echo "-----------"
 	echo "Meta data updated!"
-	# -------------------------------------------------------
 
 
 	echo  "parameterFile:	  $parameterFile" >> $logFileData
@@ -108,8 +169,11 @@ do
 	    echo "" >> $performanceLogFile
 	fi
 
-	echo "--------------"
+	echo "-----------"
 	echo "Signals updated!"
 
     done
 done
+
+echo "================================="
+echo "All data imported!"

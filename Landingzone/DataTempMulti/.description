@@ -1,0 +1,4 @@
+This directory holds raw files containing data of multible sources before they are separated.
+
+(This file serves no purpose and can be deleted. It is only needed
+because git cannot handle empty directories)
