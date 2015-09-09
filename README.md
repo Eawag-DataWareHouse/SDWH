@@ -13,4 +13,4 @@ See instructions [here](Documentation/Installation.md).
 
 ## Usage
 
-not yet documented
+See instructions [here](Documentation/UserDocumentation.md).
