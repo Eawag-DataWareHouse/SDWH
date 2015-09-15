@@ -198,8 +198,8 @@ In Pentaho (Spoon):
 3. Select **Kettle file repository** and click **OK**. The** Repository Configuration** dialog box appears.
 
 4. Enter the path to `SDWH/PentahoConfiguration/`, i.e. where the
-Pentaho files are stored. Give it a descriptive name such as "pentaho
-file directory".
+Pentaho files are stored. Give it a descriptive name such as "PentahoFiles". Modify the 
+variable `PentahoRep` in `SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh` accordingly.
 
 5. Go to **Tools **> **Options**. The kettle options will appear then
 check the **show repository dialog at startup?** box.
