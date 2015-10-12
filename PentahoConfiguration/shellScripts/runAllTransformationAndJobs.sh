@@ -44,8 +44,8 @@ do
  		mkdir -p "$rawdatabBackupPath/$multisource/rawData"
 
 		# move files
-		# mv rawData/* "$rawdatabBackupPath/$multisource/rawData/" # there is the --backup options, but it does not work ?!?!?!
-		# echo "raw files moved to: $rawdatabBackupPath/$multisource/rawData/"
+		mv rawData/* "$rawdatabBackupPath/$multisource/rawData/" # there is the --backup options, but it does not work ?!?!?!
+		echo "raw files moved to: $rawdatabBackupPath/$multisource/rawData/"
             fi
 
 	    cd $landingzonepath/DataTempMulti
@@ -89,8 +89,8 @@ do
  		mkdir -p "$rawdatabBackupPath/$source/$instances/rawData"
 
 		# move files
-		# mv rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
-		# echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
+		mv rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
+		echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
             fi
 
 	    cd $landingzonepath/Data
