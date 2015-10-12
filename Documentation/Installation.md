@@ -17,8 +17,10 @@ This document explains  how to install the required software packages
 
 and how to configure the data warehouse.
 
-General information and the configuration files as well as some sample
-data can be found on [github](https://github.com/Eawag-DataWareHouse/SDWH).
+General information and the configuration files can be found on
+ [github](https://github.com/Eawag-DataWareHouse/SDWH). Also some
+ [example data](https://github.com/Eawag-DataWareHouse/SDWH-Landingzone) are
+ available.
 
 
 System requirements
@@ -121,20 +123,20 @@ You need to insatall all the R packages you use in your conversion skripts. Usua
 ```
 sudo R
 ```
-then use 
+then use
 ```
-install.packages("package name") 
+install.packages("package name")
 ```
 within R
 
 To read the radar images you need the "rgdal" package which is tricky to install under ubuntu. Here is a way that worked:
 ```
 sudo apt-get install aptitude      # install aptitude as an alternative to apt-get
-sudo aptitude install libgdal-dev  # install the package (you will be asked 
+sudo aptitude install libgdal-dev  # install the package (you will be asked
                                    # if you accept a recomended solution, say yes)
 sudo aptitude install libproj-dev  # install the proj.4 projection library
-sudo aptitude install libgdal1-dev # install the package (you will be asked 
-                                   # if you accept a recomended solution, say no for 
+sudo aptitude install libgdal1-dev # install the package (you will be asked
+                                   # if you accept a recomended solution, say no for
                                    # the first solution and yes for the second)
 ```
 After this try
@@ -224,7 +226,7 @@ In Pentaho (Spoon):
 3. Select **Kettle file repository** and click **OK**. The** Repository Configuration** dialog box appears.
 
 4. Enter the path to `SDWH/PentahoConfiguration/`, i.e. where the
-Pentaho files are stored. Give it a descriptive name such as "PentahoFiles". Modify the 
+Pentaho files are stored. Give it a descriptive name such as "PentahoFiles". Modify the
 variable `PentahoRep` in `SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh` accordingly.
 
 5. Go to **Tools **> **Options**. The kettle options will appear then
@@ -259,9 +261,14 @@ connection.
 Create landingzone
 -----------
 
-The simplest way is to use the the directory `SDWH/Landingzone` from the git repository but
-you could also create you own empty directory with the same structure (see user
-manual).
+The landingzone in a directory with special structure as described in
+the [user manual](UserDocumentation.md). Alternatively
+ git
+repository can be cloned to obtain a Landingzone containing some
+example data:
+
+```git clone https://github.com/Eawag-DataWareHouse/SDWH-Landingzone.git```
+
 
 Adapt paths
 -----------

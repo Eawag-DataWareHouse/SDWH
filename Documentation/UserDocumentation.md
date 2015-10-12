@@ -50,9 +50,9 @@ The logical data model expressed as an entity relationship diagram is shown belo
 Landingzone
 -----------
 
-The landingzone directoy must have the structure shown in Figure 3. The
-Directory `Landingzone` on GitHub provides a concrete example:
-https://github.com/Eawag-DataWareHouse/SDWH
+The landingzone directoy must have the structure shown in Figure 3
+below. [This](https://github.com/Eawag-DataWareHouse/SDWH-Landingzone)
+GitHub repository provides a concrete example.
 
 ![Connection](images/Landingzone.png?raw=true)
 
