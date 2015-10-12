@@ -21,8 +21,39 @@ logFileData="$HOME/SDWH/Logs/autoRun_script_DataOutput.log"
 performanceLogFile="$HOME/SDWH/Logs/pentahoPerformance_optimized.log"
 
 # ---------------------------------
-# Run split scripts that separate raw files which contain data from more than one source
-# still to be implemented!!!!!!
+# Run split scripts
+
+cd $landingzonepath/DataTempMulti
+# find all directories in the landingzone with multiple sources in one file
+for multisource in $(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
+do    
+	DIRECTORY="$landingzonepath/DataTempMulti/$multisource"
+ 	# if $DIRECTORY exists
+	if [ -d "$DIRECTORY" ]; then
+
+	    cd $DIRECTORY
+	    # if rawData contains files
+            if [ "$(ls -A rawData/)" ]; then
+ 		echo "Split files in: $DIRECTORY"
+
+		./runSplitScript.sh
+
+		# --- move raw data
+
+ 		# create backup directory if it does not yet exists
+ 		mkdir -p "$rawdatabBackupPath/$multisource/rawData"
+
+		# move files
+		# mv rawData/* "$rawdatabBackupPath/$multisource/rawData/" # there is the --backup options, but it does not work ?!?!?!
+		# echo "raw files moved to: $rawdatabBackupPath/$multisource/rawData/"
+            fi
+
+	    cd $landingzonepath/DataTempMulti
+	fi
+done
+
+echo "================================="
+echo "All Multisource files splitted!"
 
 
 # ---------------------------------
@@ -58,8 +89,8 @@ do
  		mkdir -p "$rawdatabBackupPath/$source/$instances/rawData"
 
 		# move files
-		mv rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
-		echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
+		# mv rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
+		# echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
             fi
 
 	    cd $landingzonepath/Data

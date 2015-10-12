@@ -35,7 +35,7 @@ do
     # find all instances
     for instances in $(find . -maxdepth 2 -mindepth 2 -type d -printf '%f\n')
 	do
-	DIRECTORY="$instances"
+	DIRECTORY="$landingzonepath/Data/$source/$instances"
 
 	# if $DIRECTORY exists
 	if [ -d "$DIRECTORY" ]; then

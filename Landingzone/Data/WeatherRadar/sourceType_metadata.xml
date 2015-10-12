@@ -1,5 +1,0 @@
-<sourceTypeMetadata>
-		<!-- sourceTypeName must be unique -->
-		<sourceTypeName>MeteoSwissWeatherRadar</sourceTypeName>
-		<sourceTypeDescription>Meteo Swiss standard rain product. Contact person Herr. XXX , Technical details:PID=TZC,RADAR=ADL,REQ_RADAR=ADL,QUALITY=777,THR_QUAL=555,filter=0</sourceTypeDescription>
-</sourceTypeMetadata>
