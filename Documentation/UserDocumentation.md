@@ -178,45 +178,8 @@ for i in \*.\${EXT};
      Rscript instance2Standard.r ./rawData/$i
      done
 ```
-
-4. Create a file called site_metadata.xml under
-`/home/SDWH/Landingzone/newSourceType/newInstance/`.
-Fill out the values for the site meta using the following file
-structure. The following example shows a description for a SCAN data
-set.
-```XML
-<siteMetadata>
-  <sourceTypeName>UVvisSpectrometer</sourceTypeName>
-  <name>scan01Dresden</name>
-  <siteDescription>ms01Dresden</siteDescription>
-  <street>Flensburger Straße</street>
-  <city>Schacht 24G35, Mischsystem</city>
-  <coordinates>
-    <coordX>600000</coordX>
-    <coordY>250030</coordY>
-    <coordZ></coordZ>
-  </coordinates>
-  <picture id="one">
-    <pathToThePicture>./rawData/24G35_regenwetter.jpg</pathToThePicture>
-    <description>one</description>
-    <date></date>
-  </picture>
-  <picture id="two">
-    <pathToThePicture>./rawData/IMG_0312.JPG</pathToThePicture>
-    <description>two</description>
-    <date></date>
-  </picture>
-  <picture id="three">
-    <pathToThePicture>./rawData/IMG_0732.JPG</pathToThePicture>
-    <description>three</description>
-    <date></date>
-  </picture>
-</siteMetadata>
-```
-
-5. Create a file called `source_metadata.xml` at
+4. Create a file called `source_metadata.xml` at
 `/home/SDWH/Landingzone/newSourceType/newInstance/`
-
 
 The following example shows the source meta data for SCAN data set. For
 other data sets, update the values in bold accordingly.
@@ -225,12 +188,11 @@ other data sets, update the values in bold accordingly.
   <sourceId>11280256_50_0x0100_spectro::lyser_INFLUENTV160</sourceId>
   <sourceTypeId>123</sourceTypeId>
   <serial>11280256</serial>
-  <sourceDescription></sourceDescription>
-  <pathToRScript></pathToRScript>
+  <sourceDescription>This is  an example comment</sourceDescription>
   <integration>
-    <lengthX>2289.59254016954</lengthX>
+    <lengthX></lengthX>
     <lengthY></lengthY>
-    <angle>0.549108420177344</angle>
+    <angle></angle>
     <time></time>
   </integration>
 </sourceMetadata>
@@ -238,9 +200,7 @@ other data sets, update the values in bold accordingly.
 
 _NOTE_
 
-If you have more than one instances, do the same for all the instances.
-Make sure that the `sourceID` is unique. Check the column `SourceID` of the
-database table Source.
+The `sourceID` must be unique.
 
 
 Add a new parameter
