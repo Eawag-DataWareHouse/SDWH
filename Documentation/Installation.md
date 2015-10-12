@@ -116,6 +116,32 @@ sudo apt-get update
 sudo apt-get install r-base r-base-dev
 ```
 
+### Install rgdal package
+You need to insatall all the R packages you use in your conversion skripts. Usually this works as follows:
+```
+sudo R
+```
+then use 
+```
+install.packages("package name") 
+```
+within R
+
+To read the radar images you need the "rgdal" package which is tricky to install under ubuntu. Here is a way that worked:
+```
+sudo apt-get install aptitude      # install aptitude as an alternative to apt-get
+sudo aptitude install libgdal-dev  # install the package (you will be asked 
+                                   # if you accept a recomended solution, say yes)
+sudo aptitude install libproj-dev  # install the proj.4 projection library
+sudo aptitude install libgdal1-dev # install the package (you will be asked 
+                                   # if you accept a recomended solution, say no for 
+                                   # the first solution and yes for the second)
+```
+After this try
+```
+install.packages("rgdal")
+```
+within R
 
 Download configuration files
 ===================================
