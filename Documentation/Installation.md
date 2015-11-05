@@ -41,22 +41,25 @@ Pentaho
 
 Installation:
 
-1. Install Sun java Runtime Environment (JRE) version 1.5 or newer:
+1. Update the package index :
+`sudo apt-get update`
+
+2. Install Sun java Runtime Environment (JRE) version 1.5 or newer:
 `sudo apt-get install default-jre`
 
-2. Download Pentaho Data Integration version >5.2: [http://sourceforge.net/projects/pentaho/files/Data%20Integration/](http://sourceforge.net/projects/pentaho/files/Data%20Integration/)
+3. Download Pentaho Data Integration version >5.2: [http://sourceforge.net/projects/pentaho/files/Data%20Integration/](http://sourceforge.net/projects/pentaho/files/Data%20Integration/)
 
-3. extract it in directory: `/home/datalab/`
+4. extract it in directory: `/home/datalab/` and move to that directory using `cd ~/home/datalab/data_integration`
 
-4. make all shell scripts executable by: `chmod +x *.sh`
+5. make all shell scripts executable by: `chmod +x *.sh`
 
-5. download the connector "mysql-connector-java-5.1.35.tar.gz" from
+6. download the connector "mysql-connector-java-5.1.35.tar.gz" from
 [http://dev.mysql.com/downloads/connector/j/](http://dev.mysql.com/downloads/connector/j/)
 
-6. unpack it and copy the `*.jar` file to `/home/datalab/data-integration/lib`
+7. unpack it and copy the `*.jar` file to `/home/datalab/data-integration/lib`
 
-7. Increase the amount of RAM Pentaho is alowed to use: edit the
-variable `PENTAHO_DI_JAVA_OPTIONS` in the file `/home/datalab/data-integration/spoon.sh`.
+8. Increase the amount of RAM Pentaho is alowed to use: edit the
+variable `PENTAHO_DI_JAVA_OPTIONS` in the file `/home/datalab/data-integration/spoon.sh`. Precisely change the number ("#") after `-XX : MaxPermSize = #m
 
 
 MariaDB
@@ -89,7 +92,8 @@ MySQL Workbench
 MySQL Workbench is a graphical user interface to manage databases.
 Installation:
 ```
-sudo apt-get mysql-workbench
+sudo apt-get install mysql-client
+sudo apt-get install mysql-workbench
 ```
 
 R
@@ -119,7 +123,9 @@ sudo apt-get install r-base r-base-dev
 ```
 
 ### Install rgdal package
-You need to insatall all the R packages you use in your conversion skripts. Usually this works as follows:
+You need to insatall all the R packages you use in your conversion skripts. 
+
+(Remark) Usually this works as follows:
 ```
 sudo R
 ```
@@ -129,7 +135,7 @@ install.packages("package name")
 ```
 within R
 
-To read the radar images you need the "rgdal" package which is tricky to install under ubuntu. Here is a way that worked:
+In our case, to read the radar images you need the "rgdal" package which is tricky to install under ubuntu. Here is a way that worked:
 ```
 sudo apt-get install aptitude      # install aptitude as an alternative to apt-get
 sudo aptitude install libgdal-dev  # install the package (you will be asked
@@ -239,15 +245,14 @@ Connecting Pentaho to MariaDB
 
 The connection is setup automatically. However, you have to change the Password used for mariaDB.
 
-1. go to the tab **View** -> **transformation** -> **database connection** -> **MariaDBConnect**
+1. go to the tab **View** -> **Transformations** -> **Database connections** -> **MariaDBConnect**
 -> **rightclick** -> **edit and add**:
 
 	**User Name**: root
 
 	**Password**: (MariaD Password)
 
-2. go to the tab "View" -> transformation -> database connection -> tempDatabaseConnection -> rightclick -> edit and add:
-go to the tab **View** -> **transformation** -> **database connection** -> **tempDatabaseConnection**
+2. go to the tab **View** -> **Transformations** -> **Database connections** -> **tempDatabaseConnection**
 -> **rightclick** -> **edit and add**:
 
 	**User Name**: root
@@ -290,7 +295,7 @@ open crontab file with
 ```
 crontab -e
 ```
-add the following at the end of the file:
+add the following at the end of the file (Warning don't write the following line without replacing the "`*`"):
 ```
 * * * * * ~/SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh
 ```
