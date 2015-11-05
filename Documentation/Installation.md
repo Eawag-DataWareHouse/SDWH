@@ -79,7 +79,8 @@ sudo add-apt-repository 'deb http://mirror.klaus-uwe.me/mariadb/repo/5.5/ubuntu 
 
 3. Install MariaDB
 ```
-sudo apt-get update sudo apt-get install mariadb-server
+sudo apt-get update 
+sudo apt-get install mariadb-server
 ```
 
 **Note**: the above installer will prompt for a MariaDB password for the "root" account.
@@ -92,8 +93,9 @@ MySQL Workbench
 MySQL Workbench is a graphical user interface to manage databases.
 Installation:
 ```
-sudo apt-get install mysql-client
+sudo apt-get install mysql-client-5.5
 sudo apt-get install mysql-workbench
+sudo apt-get install mysql-server
 ```
 
 R
@@ -123,7 +125,7 @@ sudo apt-get install r-base r-base-dev
 ```
 
 ### Install rgdal package
-You need to insatall all the R packages you use in your conversion skripts. 
+You need to install all the R packages you use in your conversion scripts. 
 
 (Remark) Usually this works as follows:
 ```
@@ -162,7 +164,7 @@ If necessary install git first:
 sudo apt-get install git
 ```
 
-Clone (download) the files from GitHub:
+Clone (download) the files from GitHub (first move to the directory where SDWH will be imported):
 ```
 git clone https://github.com/Eawag-DataWareHouse/SDWH.git
 ```
@@ -316,6 +318,4 @@ Relaunch DWH
 After a restart of the server the following steps are required to
 (re)launch the DWH.
 
-1. Start MariaDB service: `sudo service mysql start`
-
-2. start Cron job?
+Start MariaDB service: `sudo service mysql start`
