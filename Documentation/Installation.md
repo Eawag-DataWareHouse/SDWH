@@ -235,7 +235,7 @@ In Pentaho (Spoon):
 
 4. Enter the path to `SDWH/PentahoConfiguration/`, i.e. where the
 Pentaho files are stored. Give it a descriptive name such as "PentahoFiles". Modify the
-variable `PentahoRep` in `SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh` accordingly.
+variable `PentahoRep` in `SDWH/PentahoConfiguration/Scripts/ImportData.sh` accordingly.
 
 5. Go to **Tools **> **Options**. The kettle options will appear then
 check the **show repository dialog at startup?** box.
@@ -281,7 +281,7 @@ Adapt paths
 -----------
 
 Edit the paths in the shell script
-`SDWH/PentahoConfiguration/shellScripts/runAllTransformationsAndJobs.sh`; the
+`SDWH/PentahoConfiguration/Scripts/ImportData.sh`; the
 paths for the *landingzone*, the *pentaho repository *and the *log
 files* must be defined.
 
@@ -299,7 +299,7 @@ crontab -e
 ```
 add the following at the end of the file (Warning don't write the following line without replacing the "`*`"):
 ```
-* * * * * ~/SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh
+* * * * * ~/SDWH/PentahoConfiguration/Scripts/ImportData.sh
 ```
 where \* are replaced by \* minute (from 0 to 59) \* hour (from 0 to 23)
 \* day of month (from 1 to 31) * month (from 1 to 12) \* day of week
@@ -307,7 +307,7 @@ where \* are replaced by \* minute (from 0 to 59) \* hour (from 0 to 23)
 every minute, every hour, every day, every month and all day of the
 week.  Example: run the shell script every 30 minutes:
 ```
-30 * * * * ~/SDWH/PentahoConfiguration/shellScripts/runAllTransformationAndJobs.sh
+30 * * * * ~/SDWH/PentahoConfiguration/Scripts/ImportData.sh
 ```
 For more options see [https://help.ubuntu.com/community/CronHowto].
 
