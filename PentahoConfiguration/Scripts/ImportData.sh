@@ -209,8 +209,8 @@ do
  		mkdir -p "$rawdatabBackupPath/$source/$instances/rawData"
 
 		# move files
-		# mv rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
-		# echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
+		 mv --backup=numbered rawData/* "$rawdatabBackupPath/$source/$instances/rawData/" # there is the --backup options, but it does not work ?!?!?!
+		 echo "raw files moved to: $rawdatabBackupPath/$source/$instances/rawData/"
             fi
 
 	    cd $landingzonepath/Data
