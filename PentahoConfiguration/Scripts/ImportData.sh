@@ -69,6 +69,7 @@ if [ -e "log_error.txt" ]; then
 rm log_error.txt
 fi
 # find all directories in the landingzone
+res_tst=1
 for source in $(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
 do
      # find all instances
@@ -91,7 +92,7 @@ do
 			if [[ -s $NAME_ERROR_CONVERSION ]] ; then
 				echo " " >> $landingzonepath/Data/log_error.txt
 				echo "--------------------------" >> $landingzonepath/Data/log_error.txt
-				echo "  In FILE $source/$instances  " >> $landingzonepath/Data/log_error.txt
+				echo "  In SOURCE $source/$instances  " >> $landingzonepath/Data/log_error.txt
 				echo "--------------------------" >> $landingzonepath/Data/log_error.txt
 				echo " ERROR CONVERTING rawdata TO data :" >> $landingzonepath/Data/log_error.txt
 				echo " " >> $landingzonepath/Data/log_error.txt
@@ -118,9 +119,9 @@ do
 			else
 				echo " " >> $landingzonepath/Data/log_error.txt
 				echo "--------------------------" >> $landingzonepath/Data/log_error.txt
-				echo "  In FILE $source/$instances  " >> $landingzonepath/Data/log_error.txt
+				echo "  In SOURCE $source/$instances  " >> $landingzonepath/Data/log_error.txt
 				echo "--------------------------" >> $landingzonepath/Data/log_error.txt
-				echo " ERROR CONVERTING rawdata TO data :" >> $landingzonepath/Data/log_error.txt
+				echo " STANDARIZED FILE FORMAT, WRONG FORMAT FOR FILE $FILE; list of errors :" >> $landingzonepath/Data/log_error.txt
 				echo " " >> $landingzonepath/Data/log_error.txt
 				cat $NAME_ERROR_DATA >> $landingzonepath/Data/log_error.txt
 			fi
