@@ -6,12 +6,14 @@
 #  - creates a new empty data base
 # --------------------------------------------
 
+# SDWh directory
+sdwhpath="$HOME/SDWH"
 
 # root directory of landing zone
-landingzonepath="$HOME/SDWH/Landingzone"
+landingzonename="Landingzone"
 
 # directory of log files
-logpath="$HOME/SDWH/Logs"
+logpath="$sdwhpath/Logs"
 
 
 # clear log files
@@ -26,26 +28,16 @@ mysql -u root --password=dwh --execute="drop database WaterResearch;"
 echo "Databases deleted"
 
 
-# delete all converted data files
-cd $landingzonepath/Data
+# delete old landing zone
+rm -rf "$sdwhpath/$landingzonename"
 
-# find all directories in the landingzone
-for source in $(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
-do
-    # find all instances
-    for instances in $(find . -maxdepth 2 -mindepth 2 -type d -printf '%f\n')
-	do
-	DIRECTORY="$landingzonepath/Data/$source/$instances"
+cd $sdwhpath
+pwd
+git clone https://github.com/Eawag-DataWareHouse/SDWH-Landingzone.git
 
-	# if $DIRECTORY exists
-	if [ -d "$DIRECTORY" ]; then
-	    rm $DIRECTORY/data/*.csv
-	    cd $landingzonepath/Data
-	fi
-    done
-done
+mv SDWH-Landingzone $landingzonename
+echo "Cloned new example Landingzone"
 
-echo "Converted data files deleted"
 
 # produce new empty databases
 mysql -u root --password=dwh < ~/SDWH/PentahoConfiguration/SQLqueries/tempCreateStatement.sql
