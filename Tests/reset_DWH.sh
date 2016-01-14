@@ -21,8 +21,8 @@ logpath="$HOME/SDWH/Logs"
 echo "cleared log files"
 
 # delete data bases
-mysql -u root --password=DBroot --execute="drop database temp;"
-mysql -u root --password=DBroot --execute="drop database WaterResearch;"
+mysql -u root --password=dwh --execute="drop database temp;"
+mysql -u root --password=dwh --execute="drop database WaterResearch;"
 echo "Databases deleted"
 
 
@@ -48,7 +48,7 @@ done
 echo "Converted data files deleted"
 
 # produce new empty databases
-mysql -u root --password=DBroot < ~/SDWH/PentahoConfiguration/SQLqueries/tempCreateStatement.sql
-mysql -u root --password=DBroot < ~/SDWH/PentahoConfiguration/SQLqueries/CreateStatement.sql
+mysql -u root --password=dwh < ~/SDWH/PentahoConfiguration/SQLqueries/tempCreateStatement.sql
+mysql -u root --password=dwh < ~/SDWH/PentahoConfiguration/SQLqueries/CreateStatement.sql
 
 echo "New empty databases created"

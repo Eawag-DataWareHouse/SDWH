@@ -13,7 +13,7 @@ rawdatabBackupPath="$HOME/SDWH/RawDataBackup"
 pentahoconfigpath="$HOME/SDWH/PentahoConfiguration"
 
 # name of Pentaho Di Repository
-PentahoRep="$HOME/SDWH/PentahoConfiguration"
+PentahoRep="Pentahofiles"
 
 # define logfiles
 logFileMetadata="$HOME/SDWH/Logs/autoRun_script_MetadataOutput.log"
@@ -109,7 +109,7 @@ do
 	    	    sed -i 's/\([0-9]\)e\([-+]\)/\1E\2/g' $FILE
 		fi
 
-		python $PentahoRep/Scripts/read_inputdata.py $FILE > $NAME_ERROR_DATA
+		python $pentahoconfigpath/Scripts/read_inputdata.py $FILE > $NAME_ERROR_DATA
 		if [[ -s $NAME_ERROR_DATA ]] ; then
 			if [ "$incr_log" -eq "$res_tst" ]; then
 				echo " " >> $landingzonepath/Data/log_error.txt
